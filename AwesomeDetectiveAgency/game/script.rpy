@@ -29,6 +29,7 @@ label start:
     # These display lines of dialogue.
 
     B "Hey your Grandma has been accused of murder  "
+    B "Hey there"
 
     # This ends the game.
 
