@@ -1,4 +1,4 @@
-./game/saves/*
-./game/cache/*
-./.vscode/
-./log.txt
+game/saves/*
+game/cache/*
+.vscode/
+log.txt
