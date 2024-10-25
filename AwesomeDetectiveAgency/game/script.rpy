@@ -5,10 +5,10 @@
 
 define M = Character("Sir Howards")
 define L = Character("Lady Bennington")
-define O = Character("Poor Grandma")
+define O = Character("Nana (Lily Colómes)")
 define D = Character("Detective Richard Dichson")
-define B = Character("Butler")
-
+define B = Character("Butler (Rick Raymond)")
+define P = Character("Isaac Colómes")
 
 # The game starts here.
 
@@ -24,13 +24,46 @@ label start:
     # replace it by adding a file named "eileen happy.png" to the images
     # directory.
 
-    show Butler happy
-
+    show anon default
+    
     # These display lines of dialogue.
 
-    B "Hey your Grandma has been accused of murder  "
-    B "Hey there"
+    # Anruf des Butlers
+    "Hello, is this the Colomes Detective Agency?"
 
-    # This ends the game.
+    show detective smug
+    P "You have indeed, how may I be of assistance?"
 
-    return
+    show anon default
+    "I am Rick, Rick Raymond"
+    B "Your Grandma and I have been working at the Howards Estate for a few months now."
+    show anon scared
+    B "Yesterday Lady Bennington, Sir Howards wife was murdered!"
+    B "The Police seems to believe your grandma was the murderer"
+    B "I cannot fathom sweet poor old Lily being a cold blooded murderer"
+    show anon default
+    B "Please visit me at the Estate, Please hurry, before your grandma is behind bars."
+
+    menu placeselect:
+        "Where should I go"
+        "Estate":
+            jump Estate1
+        "My Archives":
+            "They are empty"
+            jump Archives
+
+label Estate1:
+    show bg estate
+    show Butler excited
+
+    menu Estate1B1:
+        "Welcome to the Estate Sir"
+        "Where is my Grandma?":
+            B "She is at the police station, in custody"
+            B "I asked you to come here so you could look at the crime scene and prove her innocence!"
+        "Show me to the Crime Scene":
+            B "Of course!"
+            jump Crime1
+        "Leave":
+            jump DetectiveAgency1
+    
