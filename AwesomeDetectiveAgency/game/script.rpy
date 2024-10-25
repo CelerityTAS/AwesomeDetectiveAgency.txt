@@ -3,7 +3,11 @@
 # Declare characters used by this game. The color argument colorizes the
 # name of the character.
 
-define e = Character("Eileen")
+define M = Character("Sir Howards")
+define L = Character("Lady Bennington")
+define O = Character("Poor Grandma")
+define D = Character("Detective Richard Dichson")
+define B = Character("Butler")
 
 
 # The game starts here.
@@ -20,13 +24,11 @@ label start:
     # replace it by adding a file named "eileen happy.png" to the images
     # directory.
 
-    show eileen happy
+    show Butler happy
 
     # These display lines of dialogue.
 
-    e "You've created a new Ren'Py game. Yay"
-
-    e "Once you add a story, pictures, and music, you can release it to the world!"
+    B "Hey your Grandma has been accused of murder  "
 
     # This ends the game.
 
