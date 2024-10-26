@@ -10,12 +10,13 @@ define D = Character("Detective Pinkerton")
 define B = Character("Michael Dacoity")
 define P = Character("Caze Solver")
 
-default has_police_station=False
-default has_sirs_office=False
 
-default player_inventory = [["Business Card","Business Card by me"]] 
+default player_inventory = {'Business Card': "This is my business card, I should switch to QR-codes smh"}
 
-# Evidence
+python:
+    def isInInventory(name):
+        return 
+
 
 # The game starts here.
 
