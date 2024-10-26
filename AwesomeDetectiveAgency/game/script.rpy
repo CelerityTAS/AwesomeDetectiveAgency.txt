@@ -10,6 +10,7 @@ define D = Character("Detective Pinkerton")
 define B = Character("Michael Dacoity")
 define P = Character("Caze Solver")
 
+
 default has_police_station=False
 default has_sirs_office=False
 
@@ -25,7 +26,7 @@ label start:
     # add a file (named either "bg room.png" or "bg room.jpg") to the
     # images directory to show it.
 
-    scene bg room
+    scene bg skyday
 
     # This shows a character sprite. A placeholder is used, but you can
     # replace it by adding a file named "eileen happy.png" to the images
@@ -36,6 +37,7 @@ label start:
     show anon default
     
 
+    play music "audio/intro.mp3" volume 0.5
     # Anruf des Butlers
     "Hello, is this the Colomes Detective Agency? Yes?"
     
