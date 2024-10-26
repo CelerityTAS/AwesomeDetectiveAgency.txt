@@ -11,7 +11,11 @@ define B = Character("Michael Dacoity")
 define P = Character("Caze Solver")
 define C = Character("Crow",color="#222222")
 
-default player_inventory = {'Business Card': "My Business Card"}
+default player_inventory = {
+    'Business Card': "My Business Card",
+    'Diary': "The Diary of Sir Gold, it has info on a date he had on the 27.10 at 19:00",
+    'Calender': "A few days are marked. The 27. with a heart. Uh their cars insurance is expiring"
+    }
 
 screen pickevidence():
     vbox:
@@ -19,6 +23,7 @@ screen pickevidence():
         for item in player_inventory:
             textbutton "[item]" action Return(item)
 # Evidence
+default correct = False
 
 # The game starts here.
 
@@ -105,7 +110,7 @@ label butler_accusation:
             jump butler_accusation
     
     return
-
+        
 label butler_accusation_sir_gold:
     show Butler wow
     $ butler_accusation_score = butler_accusation_score+1
@@ -114,15 +119,42 @@ label butler_accusation_sir_gold:
         "He was not home":
             jump nothome
         "He was sleeping":
-            jump after
+            jump sleeping_evidence
         "He witnessed the murder":
-            jump after
+            jump witness_evidence
     return
 
+label sleeping_evidence:
+    call screen pickevidence
+    B "Sorry, but that is not at all evidence he was sleeping!"
+label witness_evidence:
+    call screen pickevidence
+    B "Sorry, but that doesn't prove anything"
+
 label nothome:
+    menu :
+        B "I guess he wasn't home, but what was he doing at that time?"
+        "He was at a Hostess club":
+            $ correct=True
+            jump not_home_evidence 
+        "He was golfing":
+            $ correct=False
+            jump not_home_evidence
+        "He was working":
+            $ correct=False
+            jump not_home_evidence
+
+
+label not_home_evidence:
     call screen pickevidence
     $ res = _return
-    "[res]"
+    if (res=="Diary" or res=="Calendar"):
+        B "Oh I guess he was innocent"
+        $ butler_accusation_score = butler_accusation_score + 2
+    else:
+        B "What does that prove?"
+        $ butler_accusation_score = butler_accusation_score-3
+            
 
 label butler2:
     B "How did you know"

@@ -2,9 +2,9 @@
 errors listed below, and try again.
 
 
-File "game/script.rpy", line 20: 'item' is not a keyword argument or valid child of the textbutton statement.
-    textbutton "[item]" action Return item
-                                          ^
+File "game/screens.rpy", line 586: expected a keyword argument or end of line.
+    spacing 3 20
+              ^
 
 Ren'Py Version: Ren'Py 8.3.2.24090902
-Sat Oct 26 15:41:27 2024
+Sat Oct 26 16:15:56 2024
