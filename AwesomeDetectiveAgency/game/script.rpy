@@ -81,7 +81,7 @@ label Estate1:
 default butler_accusation_score = 0
 
 label butler_accusation:
-    show Butler suprised
+    show Butler shocked
     B "Wait, you think I murdered Lady Gold?"
     show Butler default
     B "I seriously hope you are in your right mind, Detective"
@@ -98,5 +98,81 @@ label butler_accusation:
     return
 
 label butler_accusation_sir_gold:
-    B "Sir Gold is innocent?"
+    show Butler shocked
+    $ butler_accusation_score = butler_accusation_score+1
+    menu:
+        B "Sir Gold is innocent?"
+        "He was not home":
+            jump nothome
+        "He was sleeping":
+            jump sleeping_evidence
+        "He witnessed the murder":
+            jump witness_evidence
+    return
+
+label sleeping_evidence:
+    call screen pickevidence
+    B "Sorry, but that is not at all evidence he was sleeping!"
+label witness_evidence:
+    call screen pickevidence
+    B "Sorry, but that doesn't prove anything"
+
+label nothome:
+    menu :
+        B "What was he doing then?"
+        "He was at a Hostess club":
+            $ correct=True
+            jump not_home_evidence 
+        "He was golfing":
+            $ correct=False
+            jump not_home_evidence
+        "He was working":
+            $ correct=False
+            jump not_home_evidence
+
+
+label not_home_evidence:
+    call screen pickevidence
+    $ res = _return
+    if (res=="Diary" or res=="Calendar"):
+        B "Oh I guess he couldn't have done it then"
+        $ butler_accusation_score = butler_accusation_score + 2
+        jump butler_accusation_outsider
+    else:
+        B "What does that prove?"
+        $ butler_accusation_score = butler_accusation_score-3
+        B "Anyway, even if it wasn't him, because he wasn't here"
+        jump butler_accusation_outsider
+            
+label butler_accusation_outsider:
+    menu:
+        B "Why could it not have just been an outsider?"
+        "A birdie told me":
+            jump butler_accusation_grandma
+        "Grandma was fighting them":
+            jump GrandmaNinjaDefendingOutsiders
+        
+label GrandmaNinjaDefendingOutsiders:
+    B "I thought your grandma was sleeping?"
+    show Player wrong
+    P "Oh yeah, I forgot"
+    jump butler_accusation_grandma
+
+label butler_accusation_grandma:
+    B "I guess then it must have been your Grandma I truely am sorry."
+    P "How dare you"
+    B "You still have not presented me with proof!"
+    jump butler_accusation_final
+
+label butler_accusation_final:
+    P "First things first, your motive was that ..."
+    menu:
+        "...you were hired by the mafia":
+            jump after
+        "...wanted revenge for how she treated you":
+            jump after
+            #block of code to run
+        "...I don't know":
+            jump after
+label after:
     return
