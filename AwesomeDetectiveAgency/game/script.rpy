@@ -9,11 +9,14 @@ define O = Character("Dishi Solver")
 define D = Character("Detective Pinkerton")
 define B = Character("Michael Dacoity")
 define P = Character("Caze Solver")
+define C = Character("Crow")
 
 
-
+default foundcalendar = False
+default talkedtobutler = False
 default has_police_station=False
 default has_sirs_office=False
+default butler_accusation_score = 0
 
 default player_inventory = {'Business Card': "My Business Card"}
 
@@ -36,7 +39,6 @@ label start:
     
     # TODO: remove this
     #jump butler_accusation
-    hide crow
     # show detective smug
     P "You have indeed, how may I be of assistance?"  
 
@@ -60,7 +62,7 @@ label place_select:
         "Police Station":
             jump Estate1
         "Back Alley":
-            jump Estate1
+            jump BackAlley
 
 
 label Estate1:
@@ -78,12 +80,35 @@ label Estate1:
         "Leave":
             jump DetectiveAgency1
     
-default butler_accusation_score = 0
+
+
+label BackAlley:
+    $ butler_accusation_score = butler_accusation_score + 1
+    scene bg alley
+    show crow normal at right with easeinright:
+        zoom 0.5
+        yalign 0.64
+        
+        #change scale
+    C "Hello, who might you be?"
+    show detective normal at left with easeinleft: 
+        zoom 0.5
+        yalign 0.64
+
+    #P "I am searching for someone that might have murdered the Lady of the local Mansion"
+    #if (talkedtobutler == true) and (foundcalendar == true) : 
+    #   C "Oh my, you have talked to the butler, haven't you?"
+    #   P "Yes indeed, how could you tell?"
+    #   C "I saw you leave the mansion, and you should know crows"
+
+
+
+
 
 label butler_accusation:
-    show Butler suprised
+    #show Butler suprised
     B "Wait, you think I murdered Lady Gold?"
-    show Butler default
+    #show Butler default
     B "I seriously hope you are in your right mind, Detective"
     menu:
         B "I invited you to this place so you could defend your grandma, why would I have done that if I murdered her"

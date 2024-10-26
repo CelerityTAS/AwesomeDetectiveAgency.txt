@@ -2,9 +2,9 @@
 errors listed below, and try again.
 
 
-File "game/script.rpy", line 38: expected 'image_name_component' not found.
-    show "images/SirGold.jpg"
-         ^
+File "game/script.rpy", line 89: ATL statement contains two expressions in a row; is one of them a misspelled property? If not, separate them with pass.
+    crow normal.scale 1 
+                      ^
 
 Ren'Py Version: Ren'Py 8.3.2.24090902
-Sat Oct 26 15:30:22 2024
+Sat Oct 26 18:58:43 2024
