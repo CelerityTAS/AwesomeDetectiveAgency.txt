@@ -12,8 +12,11 @@ define P = Character("Caze Solver")
 
 
 
-default has_police_station=False
-default has_sirs_office=False
+screen pickevidence():
+    vbox:
+        align (0.5, 0.5)
+        for item in player_inventory:
+            textbutton "[item]" action Return(item)
 
 default player_inventory = {'Business Card': "My Business Card"}
 
@@ -35,7 +38,7 @@ label start:
     "Hello, is this the Caze Solver's Detective Agency?"
     
     # TODO: remove this
-    #jump butler_accusation
+    jump butler_accusation
     hide crow
     # show detective smug
     P "You have indeed, how may I be of assistance?"  
@@ -165,14 +168,67 @@ label butler_accusation_grandma:
     jump butler_accusation_final
 
 label butler_accusation_final:
-    P "First things first, your motive was that ..."
+    P "First things first, your motive was that you..."
     menu:
-        "...you were hired by the mafia":
-            jump after
         "...wanted revenge for how she treated you":
-            jump after
-            #block of code to run
-        "...I don't know":
-            jump after
-label after:
-    return
+            jump butler_accusation_revenge
+        "...were hired by the mafia":
+            jump butler_accusation_mafia
+        "...really don't like Sir Gold":
+            jump butler_accusation_revenge
+        "... wanted to steal the vase for money":
+            $ butler_accusation_score = butler_accusation_score+2
+            jump butler_accusation_final_proof
+
+label butler_accusation_revenge:
+    B "I never disliked Lady Gold or Sir Gold, you cannot be serious!"
+    P "I guess I missed that"
+    $ butler_accusation_score = butler_accusation_score-3
+    jump butler_accusation_conclusion
+
+label butler_accusation_mafia:
+    B "The Mafia?"
+    P "The Mafia!"
+    menu:
+        P "And proof for that is"
+        "the tatoo you have on your hand":
+            jump butler_accusation_tatoo
+        "the tatoo you have on your foot":
+            jump butler_accusation_tatoo
+        "your earrings":
+            jump butler_accusation_final_proof
+
+label butler_accusation_tatoo:
+    B "I have no tatoos anywhere on my body, what are you talking about?"
+    jump butler_accusation_final_proof
+
+label butler_accusation_final_proof:
+    B "Do you have any concrete evidence?"
+    P "I do"
+    call screen pickevidence
+    $ res = _return
+    if (res=="Vase"):
+        $ butler_accusation_score = butler_accusation_score + 4
+        B "what about it?"
+        menu:
+            P "There is very clearly..."
+            "...something missing":
+                jump butler_accusation_final_missing
+            "...a giant handprint":
+                $ butler_accusation_score = butler_accusation_score + 3
+                jump butler_accusation_conclusion
+            "...your footprint":
+                jump butler_accusation_final_missing
+
+label butler_accusation_final_missing:
+    B "what exactly?"
+    P "Well I don't know actually"
+    $ butler_accusation_score = butler_accusation_score -3
+    B "great"
+    jump butler_accusation_conclusion   
+
+label butler_accusation_conclusion:
+    if butler_accusation_score > 10:
+        B "Fine, it was me, I was the one who killed the old miss"
+        B "But it was an accident I swear"
+        B "She just woke up, when I was fleeing with the vase"

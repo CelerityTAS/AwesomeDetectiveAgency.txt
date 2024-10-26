@@ -2,9 +2,9 @@
 errors listed below, and try again.
 
 
-File "game/script.rpy", line 38: expected 'image_name_component' not found.
-    show "images/SirGold.jpg"
+File "game/script.rpy", line 206: invalid syntax
+    var res = _return
          ^
 
 Ren'Py Version: Ren'Py 8.3.2.24090902
-Sat Oct 26 15:30:22 2024
+Sat Oct 26 17:44:12 2024
