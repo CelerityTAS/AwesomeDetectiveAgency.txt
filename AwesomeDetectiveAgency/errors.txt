@@ -2,9 +2,9 @@
 errors listed below, and try again.
 
 
-File "game/script.rpy", line 89: ATL statement contains two expressions in a row; is one of them a misspelled property? If not, separate them with pass.
-    crow normal.scale 1 
-                      ^
+File "game/script.rpy", line 86: expected statement.
+    s
+     ^
 
 Ren'Py Version: Ren'Py 8.3.2.24090902
-Sat Oct 26 18:58:43 2024
+Sat Oct 26 19:27:44 2024

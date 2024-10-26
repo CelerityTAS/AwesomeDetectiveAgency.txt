@@ -20,6 +20,8 @@ default butler_accusation_score = 0
 
 default player_inventory = {'Business Card': "My Business Card"}
 
+default knows_affair = False
+default talked_to_sir = False
 # Evidence
 
 # The game starts here.
@@ -39,7 +41,7 @@ label start:
     "Hello, is this the Caze Solver's Detective Agency?"
     
     # TODO: remove this
-    jump sir_accusation
+    jump talking_to_sir_gold
     #jump butler_accusation
     # show detective smug
     P "You have indeed, how may I be of assistance?"  
@@ -83,10 +85,9 @@ label Estate1:
         "Leave":
             jump DetectiveAgency1
     
-s
+
 
 label BackAlley:
-    $ butler_accusation_score = butler_accusation_score + 1
     scene bg alley
     show crow normal at right with easeinright:
         zoom 0.5
@@ -103,6 +104,100 @@ label BackAlley:
     #   C "Oh my, you have talked to the butler, haven't you?"
     #   P "Yes indeed, how could you tell?"
     #   C "I saw you leave the mansion, and you should know crows"
+
+### Talking to Sir Gold
+
+label murderer_room:
+    if (not talking_to_sir_gold):
+        jump talking_to_sir_gold
+    B "This is the crime Scene"
+    return
+
+
+label talking_to_sir_gold:
+    show detective normal at left
+    show sirgold normal at right
+    $ talked_to_sir = True
+    if (not talked_to_sir):
+        M "Oh hello, you must be the Detective I heard is investigating the death of my poor wife."
+        M "However I must warn you that the police has already found the murderer, so there is nothing for you to do here"
+        P "I am very sure she is innocent!"
+        P "That is what I am here to proof! I will find the real killer!"
+    menu:
+        "tell me about your affair" if knows_affair:
+            jump sirs_affair
+        "tell me about your buttler":
+            jump sir_gold_on_butler
+        "leave":
+            jump murderer_room
+
+
+label sir_gold_on_butler:
+    M "He is a good Butler, we have had him in our services for about 2 months now"
+    P "Hmm ok"
+    M "What he doesn't talk much!"
+    jump talking_to_sir_gold
+
+label sirs_affair:
+    show detective normal at left
+    show sirgold normal at right
+    M "it hurts to say this, but I had secretly been meeting other women besides my wife"
+    M "She definitely never found out though!"
+    P "Yeah yeah"
+    P "So where were you really, when your wife was killed"
+    show sirgold shocked at right
+    M "Ok waow, you knew that was a lie too."
+    show sirgold normal at right
+    M "I was really with my new miss in a fancy restaurant a few hours away from here"
+    M "That means I cannot have murdered my wife, yes!"
+    P "We will see about that"
+    jump talking_to_sir_gold
+
+### Sir about affair
+label sir_not_home:
+    return
+
+### Sir Accusation
+label sir_accusation:
+    show detective normal at left
+    show sirgold shocked at right
+    M "You think I murdered my wife?"
+    M "Are you insane?"
+    M "I know I shouldn't have let some loosey doosey detective snoop around the place"
+    M "What could you have possibly taken as evidence for your claim?"
+    menu:
+        "You clearly..."
+        "wanted to get my grandmother fired":
+            jump sir_accusation_grandma_fired
+        "Weren't home on the 27.th":
+            jump sir_accusation_not_home
+        "had an affair and wanted your wife dead":
+            jump sir_accusation_affair
+
+label sir_accusation_affair:
+    if (knows_affair):
+        M "But if I wasn't here, I could not have murdered my wife you idiot"
+        show detective wrong at left
+        P "Guess I missed that"
+        show detective normal at left
+        jump sir_accusation_evidence
+    else: 
+        jump sir_not_home
+
+label sir_accusation_grandma_fired:
+    M "If I wanted your grandmother fired, I would have just fired her"
+    P "You were scared of her, since she could easily beat you up"
+    M "Nonsense"
+    jump sir_accusation_evidence
+
+label sir_accusation_not_home:
+    M "But if I wasn't home, then I could not have murdered my wife?"
+    M "You seem to be confused"
+    show Player wrong at left
+    if (knows_affair):
+        jump sir_accusation_evidence
+    else:
+        jump sir_not_home
 
 
 
