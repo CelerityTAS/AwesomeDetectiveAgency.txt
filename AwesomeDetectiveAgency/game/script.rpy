@@ -13,7 +13,7 @@ define P = Character("Caze Solver")
 default has_police_station=False
 default has_sirs_office=False
 
-default player_inventory = [["Business Card","Business Card by me"]] 
+default player_inventory = {'Business Card': "My Business Card"}
 
 # Evidence
 
@@ -31,10 +31,16 @@ label start:
     # replace it by adding a file named "eileen happy.png" to the images
     # directory.
 
+
+
     show anon default
+    
 
     # Anruf des Butlers
     "Hello, is this the Colomes Detective Agency? Yes?"
+    
+    # TODO: remove this
+    jump butler_accusation
 
     show detective smug
     P "You have indeed, how may I be of assistance?"
@@ -77,3 +83,26 @@ label Estate1:
         "Leave":
             jump DetectiveAgency1
     
+default butler_accusation_score = 0
+
+label butler_accusation:
+    show Butler suprised
+    B "Wait, you think I murdered Lady Gold?"
+    show Butler default
+    B "I seriously hope you are in your right mind, Detective"
+    menu:
+        B "I invited you to this place so you could defend your grandma, why would I have done that if I murdered her"
+        "You were trying to protect my Grandma":
+            pass
+        "You were framing Sir Gold instead!":
+            jump butler_accusation_sir_gold
+        "You were trying to bring me down too!":
+            butler_accusation_score -=1
+            jump butler_accusation
+    
+    menu:
+        B "Then why did"
+    return
+
+label butler_accusation_sir_gold:
+    B "Sir Gold is innocent?"

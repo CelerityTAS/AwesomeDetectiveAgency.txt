@@ -2,13 +2,9 @@
 errors listed below, and try again.
 
 
-File "game/script.rpy", line 15: expected '=' not found.
-    default all_items['Business Card'] = "This is my business card, I should switch to QR-codes smh" 
-                     ^
-
-File "game/script.rpy", line 18: expected '=' not found.
-    default player_inventory['Business Card'] = "This is my business card, I should switch to QR-codes smh"
-                            ^
+File "game/script.rpy", line 90: expected ':' not found.
+    else 
+         ^
 
 Ren'Py Version: Ren'Py 8.3.2.24090902
-Sat Oct 26 12:44:17 2024
+Sat Oct 26 14:06:24 2024

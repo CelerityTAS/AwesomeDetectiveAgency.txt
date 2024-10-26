@@ -576,18 +576,20 @@ style about_label_text:
     size gui.label_text_size
 
 
+default accusation_mode = False
+
 screen inventory():
     tag menu
 
     use game_menu(_("Inventory"), scroll="viewport"):
-
-        style_prefix "inv"
-
-        has vbox:
-            spacing 20
+        has grid 2 3
+        yspacing 20
+        textbutton _("Pointy Stick" if accusation_mode else "Not so pointy Stick") action ToggleVariable("accusation_mode")
+        text _("For accusing the murderer")
 
         for items in player_inventory:
-            text _(""+items[0] + " | " + items[1])
+            text _(""+items)
+            text _("" + player_inventory[items])
 
 ## Load and Save screens #######################################################
 ##
