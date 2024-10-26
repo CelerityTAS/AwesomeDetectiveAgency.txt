@@ -32,11 +32,11 @@ label start:
     # add a file (named either "bg room.png" or "bg room.jpg") to the
     # images directory to show it.
 
-    scene bg skyday
+    scene bg agency
     play music "audio/intro.mp3" volume 0.5
   
     show anon at right
-    show detective normal at left
+    #show detective normal at left
     # Anruf des Butlers
     "Hello, is this the Caze Solver's Detective Agency?"
     
@@ -126,7 +126,7 @@ label talking_to_sir_gold:
     menu:
         "tell me about your affair" if knows_affair:
             jump sirs_affair
-        "tell me about your buttler":
+        "tell me about your butler":
             jump sir_gold_on_butler
         "leave":
             jump murderer_room
