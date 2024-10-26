@@ -11,6 +11,7 @@ define B = Character("Michael Dacoity")
 define P = Character("Caze Solver")
 
 
+
 default has_police_station=False
 default has_sirs_office=False
 
@@ -27,27 +28,19 @@ label start:
     # images directory to show it.
 
     scene bg skyday
-
-    # This shows a character sprite. A placeholder is used, but you can
-    # replace it by adding a file named "eileen happy.png" to the images
-    # directory.
-
-
-
-    show anon default
-    
-
     play music "audio/intro.mp3" volume 0.5
+  
+    show butler normal
     # Anruf des Butlers
     "Hello, is this the Caze Solver's Detective Agency?"
     
     # TODO: remove this
-    jump butler_accusation
+    #jump butler_accusation
+    hide crow
+    # show detective smug
+    P "You have indeed, how may I be of assistance?"  
 
-    show detective smug
-    P "You have indeed, how may I be of assistance?"
-
-    show anon default
+    # show anon default
     "I am "
     B "Your Grandma and I have been working at the Howards Estate for a few months now."
     show anon scared
@@ -72,7 +65,7 @@ label place_select:
 
 label Estate1:
     show bg estate
-    show Butler excited
+    show butler 
 
     menu Estate1B1:
         "Welcome to the Estate Sir"
