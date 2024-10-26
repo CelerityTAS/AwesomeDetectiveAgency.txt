@@ -2,9 +2,9 @@
 errors listed below, and try again.
 
 
-File "game/script.rpy", line 53: expected ':' not found.
-    menu "Move to"
-         ^
+File "game/screens.rpy", line 591: invalid syntax
+        text _(items[0] + " | " + items[1])
+              ^
 
 Ren'Py Version: Ren'Py 8.3.2.24090902
-Sat Oct 26 11:26:41 2024
+Sat Oct 26 12:17:50 2024

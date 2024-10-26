@@ -13,7 +13,7 @@ define P = Character("Caze Solver")
 default has_police_station=False
 default has_sirs_office=False
 
-default player_inventory = [["Business Card"],["Business Card by me"]] 
+default player_inventory = [["Business Card","Business Card by me"]] 
 
 # Evidence
 

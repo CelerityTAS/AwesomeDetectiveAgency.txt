@@ -587,7 +587,7 @@ screen inventory():
             spacing 20
 
         for items in player_inventory:
-            text _("" + items.get(0) + " | " + items.get(1))
+            text _(""+items[0] + " | " + items[1])
 
 ## Load and Save screens #######################################################
 ##
