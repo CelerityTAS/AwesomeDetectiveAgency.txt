@@ -50,7 +50,7 @@ label start:
     B "Yesterday Lady Bennington, Sir Howards wife was murdered!"
     B "The Police seems to believe your grandma was the murderer"
     B "I cannot fathom sweet poor old Lily being a cold blooded murderer"
-    show anon default
+    show anon normal
     B "Please visit me at the Estate, Please hurry, before your grandma is behind bars."
     jump place_select
 
@@ -84,24 +84,20 @@ label Estate1:
 default butler_accusation_score = 0
 
 label butler_accusation:
-    show Butler shocked
+    show butler shocked at right
     B "Wait, you think I murdered Lady Gold?"
-    show Butler default
+    show butler normal at right
     B "I seriously hope you are in your right mind, Detective"
     menu:
         B "I invited you to this place so you could defend your grandma, why would I have done that if I murdered her"
-        "You were trying to protect my Grandma":
-            pass
         "You were framing Sir Gold instead!":
             jump butler_accusation_sir_gold
         "You were trying to bring me down too!":
             $ butler_accusation_score = butler_accusation_score-1
             jump butler_accusation
-    
-    return
 
 label butler_accusation_sir_gold:
-    show Butler shocked
+    show butler shocked at right
     $ butler_accusation_score = butler_accusation_score+1
     menu:
         B "Sir Gold is innocent?"
@@ -114,9 +110,11 @@ label butler_accusation_sir_gold:
     return
 
 label sleeping_evidence:
+    show butler normal at right
     call screen pickevidence
     B "Sorry, but that is not at all evidence he was sleeping!"
 label witness_evidence:
+    show butler normal at right
     call screen pickevidence
     B "Sorry, but that doesn't prove anything"
 
@@ -137,11 +135,13 @@ label nothome:
 label not_home_evidence:
     call screen pickevidence
     $ res = _return
-    if (res=="Diary" or res=="Calendar"):
+    if (correct and (res=="Diary" or res=="Calendar")):
+        show butler shocked at right
         B "Oh I guess he couldn't have done it then"
         $ butler_accusation_score = butler_accusation_score + 2
         jump butler_accusation_outsider
     else:
+        show butler normal at right
         B "What does that prove?"
         $ butler_accusation_score = butler_accusation_score-3
         B "Anyway, even if it wasn't him, because he wasn't here"
@@ -157,13 +157,16 @@ label butler_accusation_outsider:
         
 label GrandmaNinjaDefendingOutsiders:
     B "I thought your grandma was sleeping?"
-    show Player wrong
+    show detective wrong at left
     P "Oh yeah, I forgot"
     jump butler_accusation_grandma
 
 label butler_accusation_grandma:
+    show detective normal at left
     B "I guess then it must have been your Grandma I truely am sorry."
+    show detective shocked at left
     P "How dare you"
+    show detective normal at left
     B "You still have not presented me with proof!"
     jump butler_accusation_final
 
@@ -182,7 +185,9 @@ label butler_accusation_final:
 
 label butler_accusation_revenge:
     B "I never disliked Lady Gold or Sir Gold, you cannot be serious!"
+    show detective wrong at left
     P "I guess I missed that"
+    show detective normal at left
     $ butler_accusation_score = butler_accusation_score-3
     jump butler_accusation_conclusion
 
@@ -215,10 +220,15 @@ label butler_accusation_final_proof:
             "...something missing":
                 jump butler_accusation_final_missing
             "...a giant handprint":
-                $ butler_accusation_score = butler_accusation_score + 3
-                jump butler_accusation_conclusion
+                jump butler_accusation_handprint_grandma
             "...your footprint":
                 jump butler_accusation_final_missing
+
+label butler_accusation_handprint_grandma:
+    B "What about grandmas handprint?"
+    P "These are clearly too big for grandmas small hands, they must be yours!!"
+    $ butler_accusation_score = butler_accusation_score + 5
+    jump butler_accusation_conclusion
 
 label butler_accusation_final_missing:
     B "what exactly?"
@@ -232,3 +242,4 @@ label butler_accusation_conclusion:
         B "Fine, it was me, I was the one who killed the old miss"
         B "But it was an accident I swear"
         B "She just woke up, when I was fleeing with the vase"
+        return
