@@ -39,7 +39,7 @@ label start:
 
     play music "audio/intro.mp3" volume 0.5
     # Anruf des Butlers
-    "Hello, is this the Colomes Detective Agency? Yes?"
+    "Hello, is this the Caze Solver's Detective Agency?"
     
     # TODO: remove this
     jump butler_accusation
@@ -48,7 +48,7 @@ label start:
     P "You have indeed, how may I be of assistance?"
 
     show anon default
-    "I am Rick, Rick Raymond"
+    "I am "
     B "Your Grandma and I have been working at the Howards Estate for a few months now."
     show anon scared
     B "Yesterday Lady Bennington, Sir Howards wife was murdered!"
@@ -99,12 +99,11 @@ label butler_accusation:
         "You were framing Sir Gold instead!":
             jump butler_accusation_sir_gold
         "You were trying to bring me down too!":
-            butler_accusation_score -=1
+            $ butler_accusation_score = butler_accusation_score-1
             jump butler_accusation
     
-    menu:
-        B "Then why did"
     return
 
 label butler_accusation_sir_gold:
     B "Sir Gold is innocent?"
+    return
