@@ -1,11 +1,8 @@
 AwesomeDetectiveAgency/.vscode/*
 AwesomeDetectiveAgency/log.txt
 /.vscode
-/AwesomeDetectiveAgency/game/cache/*
-/AwesomeDetectiveAgency/game/saves/*
 AwesomeDetectiveAgency/log.txt
 AwesomeDetectiveAgency/errors.txt
 AwesomeDetectiveAgency/errors.txt
 AwesomeDetectiveAgency/traceback.txt
-/AwesomeDetectiveAgency/game/cache
-/AwesomeDetectiveAgency/game/saves
+
