@@ -2,9 +2,9 @@
 errors listed below, and try again.
 
 
-File "game/script.rpy", line 51: choice menuitem expects a non-empty block.
-    "My Archives":
-                  ^
+File "game/script.rpy", line 53: expected ':' not found.
+    menu "Move to"
+         ^
 
 Ren'Py Version: Ren'Py 8.3.2.24090902
-Fri Oct 25 22:42:16 2024
+Sat Oct 26 11:26:41 2024

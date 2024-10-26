@@ -3,12 +3,19 @@
 # Declare characters used by this game. The color argument colorizes the
 # name of the character.
 
-define M = Character("Sir Howards")
-define L = Character("Lady Bennington")
-define O = Character("Nana (Lily Colómes)")
-define D = Character("Detective Richard Dichson")
-define B = Character("Butler (Rick Raymond)")
-define P = Character("Isaac Colómes")
+define M = Character("Sir Gold")
+define L = Character("Lady Gold")
+define O = Character("Dishi Solver")
+define D = Character("Detective Pinkerton")
+define B = Character("Michael Dacoity")
+define P = Character("Caze Solver")
+
+default has_police_station=False
+default has_sirs_office=False
+
+default player_inventory = [["Business Card"],["Business Card by me"]] 
+
+# Evidence
 
 # The game starts here.
 
@@ -25,8 +32,6 @@ label start:
     # directory.
 
     show anon default
-    
-    # These display lines of dialogue.
 
     # Anruf des Butlers
     "Hello, is this the Colomes Detective Agency?"
@@ -43,14 +48,19 @@ label start:
     B "I cannot fathom sweet poor old Lily being a cold blooded murderer"
     show anon default
     B "Please visit me at the Estate, Please hurry, before your grandma is behind bars."
+    jump place_select
 
-    menu placeselect:
-        "Where should I go"
+label place_select:
+    show bg room
+    menu:
+        "Move to"
         "Estate":
             jump Estate1
-        "My Archives":
-            "They are empty"
-            jump Archives
+        "Police Station":
+            jump Estate1
+        "Back Alley":
+            jump Estate1
+
 
 label Estate1:
     show bg estate
