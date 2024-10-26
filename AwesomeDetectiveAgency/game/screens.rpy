@@ -303,6 +303,8 @@ screen navigation():
 
             textbutton _("History") action ShowMenu("history")
 
+            textbutton _("Inventory") action ShowMenu("inventory")
+
             textbutton _("Save") action ShowMenu("save")
 
         textbutton _("Load") action ShowMenu("load")
@@ -573,6 +575,19 @@ style about_text is gui_text
 style about_label_text:
     size gui.label_text_size
 
+
+screen inventory():
+    tag menu
+
+    use game_menu(_("Inventory"), scroll="viewport"):
+
+        style_prefix "inv"
+
+        has vbox:
+            spacing 20
+
+        for items in player_inventory:
+            text _(""+items[0] + " | " + items[1])
 
 ## Load and Save screens #######################################################
 ##
