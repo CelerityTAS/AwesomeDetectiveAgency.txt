@@ -2,9 +2,9 @@
 errors listed below, and try again.
 
 
-File "game/script.rpy", line 86: expected statement.
-    s
-     ^
+File "game/script.rpy", line 110: Line is followed by a block, despite not being a menu choice. Did you forget a colon at the end of the line?
+    "Why would a crow bother with humans?"  
+                                            ^
 
 Ren'Py Version: Ren'Py 8.3.2.24090902
-Sat Oct 26 19:27:44 2024
+Sat Oct 26 19:42:10 2024
