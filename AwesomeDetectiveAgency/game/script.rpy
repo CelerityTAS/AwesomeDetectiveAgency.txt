@@ -34,7 +34,7 @@ label start:
     show anon default
 
     # Anruf des Butlers
-    "Hello, is this the Colomes Detective Agency?"
+    "Hello, is this the Colomes Detective Agency? Yes?"
 
     show detective smug
     P "You have indeed, how may I be of assistance?"
