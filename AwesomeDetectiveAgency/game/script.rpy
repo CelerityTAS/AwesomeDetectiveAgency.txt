@@ -11,7 +11,7 @@ define B = Character("Michael Dacoity")
 define P = Character("Caze Solver")
 define C = Character("Crow")
 
-
+default talkedtocrow == False
 default foundcalendar = False
 default talkedtobutler = False
 default has_police_station=False
@@ -45,11 +45,11 @@ label start:
     # show anon default
     "I am "
     B "Your Grandma and I have been working at the Howards Estate for a few months now."
-    show anon scared
+    # show anon scared
     B "Yesterday Lady Bennington, Sir Howards wife was murdered!"
     B "The Police seems to believe your grandma was the murderer"
     B "I cannot fathom sweet poor old Lily being a cold blooded murderer"
-    show anon default
+    show anon normal
     B "Please visit me at the Estate, Please hurry, before your grandma is behind bars."
     jump place_select
 
@@ -67,7 +67,7 @@ label place_select:
 
 label Estate1:
     show bg estate
-    show butler 
+    show butler
 
     menu Estate1B1:
         "Welcome to the Estate Sir"
@@ -83,24 +83,39 @@ label Estate1:
 
 
 label BackAlley:
-    $ butler_accusation_score = butler_accusation_score + 1
     scene bg alley
     show crow normal at right with easeinright:
         zoom 0.5
         yalign 0.64
-        
-        #change scale
     C "Hello, who might you be?"
     show detective normal at left with easeinleft: 
         zoom 0.5
         yalign 0.64
+    #placeholer calendar aufgehoben
+    #default player_inventory = {'Calendar'}
+    #$ foundcalendar == true
+    #talkedtocrow == true
+    P "I am searching for someone that might have murdered the Lady of the local Mansion"
+    if (talkedtobutler == true) and (foundcalendar == true) : 
+    C "Oh my, you have talked to the butler, haven't you?"
+    P "Yes indeed, how could you tell?"
+    C "I saw you leave the mansion, you should know crows are everywhere here"
+    C "I can assure you that the murderer is somewhere within the mansion, as I have not seen any person leave after the incident"
+    show detective wrong at left with easeinleft: 
+        zoom 0.5
+        yalign 0.64
+    menu:
+        "Why should I trust you?":
+            C "Why shouldn't you? You seem to be in distress, because you havent found the murderer and time is running out"
+            C "Now hush hush, go back and find the culprit, so that the poor soul may rest in peace"
 
-    #P "I am searching for someone that might have murdered the Lady of the local Mansion"
-    #if (talkedtobutler == true) and (foundcalendar == true) : 
-    #   C "Oh my, you have talked to the butler, haven't you?"
-    #   P "Yes indeed, how could you tell?"
-    #   C "I saw you leave the mansion, and you should know crows"
-
+        "Why would a crow bother with humans?":
+            C "Because it is amusing, watching humans fight against one another"
+            C "Now hush hush, go back and find the culprit, so that the poor soul may rest in peace"
+    else:
+        C "I do not know anything about a murder, do you have any clues?"
+        P "Looks like I've got all the pieces, just none of them fit. You got a fresh set of eyes on this?"
+    return
 
 
 
