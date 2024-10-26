@@ -19,8 +19,7 @@ screen pickevidence():
             textbutton "[item]" action Return(item)
 
 default player_inventory = {'Business Card': "My Business Card"}
-
-# Evidence
+default knows_affair = False
 
 # The game starts here.
 
@@ -38,19 +37,17 @@ label start:
     "Hello, is this the Caze Solver's Detective Agency?"
     
     # TODO: remove this
-    jump butler_accusation
+    jump sir_accusation
     hide crow
     # show detective smug
     P "You have indeed, how may I be of assistance?"  
 
-    # show anon default
     "I am "
     B "Your Grandma and I have been working at the Howards Estate for a few months now."
-    show anon scared
     B "Yesterday Lady Bennington, Sir Howards wife was murdered!"
     B "The Police seems to believe your grandma was the murderer"
     B "I cannot fathom sweet poor old Lily being a cold blooded murderer"
-    show anon normal
+    show anon
     B "Please visit me at the Estate, Please hurry, before your grandma is behind bars."
     jump place_select
 
@@ -83,6 +80,54 @@ label Estate1:
     
 default butler_accusation_score = 0
 
+### Sir about affair
+label sir_not_home:
+    return
+
+### Sir Accusation
+label sir_accusation:
+    show detective normal at left
+    show sirgold shocked at right
+    M "You think I murdered my wife?"
+    M "Are you insane?"
+    M "I know I shouldn't have let some loosey doosey detective snoop around the place"
+    M "What could you have possibly taken as evidence for your claim?"
+    menu:
+        "You clearly..."
+        "wanted to get my grandmother fired":
+            jump sir_accusation_grandma_fired
+        "Weren't home on the 27.th":
+            jump sir_accusation_not_home
+        "had an affair and wanted your wife dead":
+            jump sir_accusation_affair
+
+label sir_accusation_affair:
+    if (knows_affair):
+        M "But if I wasn't here, I could not have murdered my wife you idiot"
+        show detective wrong at left
+        P "Guess I missed that"
+        show detective normal at left
+        jump sir_accusation_evidence
+    else: 
+        jump sir_not_home
+
+label sir_accusation_grandma_fired:
+    M "If I wanted your grandmother fired, I would have just fired her"
+    P "You were scared of her, since she could easily beat you up"
+    M "Nonsense"
+    jump sir_accusation_evidence
+
+label sir_accusation_not_home:
+    M "But if I wasn't home, then I could not have murdered my wife?"
+    M "You seem to be confused"
+    show Player wrong at left
+    if (knows_affair):
+        jump sir_accusation_evidence
+    else:
+        jump sir_not_home
+
+
+### Butler Accusation
 label butler_accusation:
     show butler shocked at right
     B "Wait, you think I murdered Lady Gold?"

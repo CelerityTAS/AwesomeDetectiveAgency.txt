@@ -2,9 +2,9 @@
 errors listed below, and try again.
 
 
-File "game/script.rpy", line 206: invalid syntax
-    var res = _return
-         ^
+File "game/script.rpy", line 100: choice menuitem expects a non-empty block.
+    "had an affair and wanted your wife dead":
+                                              ^
 
 Ren'Py Version: Ren'Py 8.3.2.24090902
-Sat Oct 26 17:44:12 2024
+Sat Oct 26 18:49:42 2024
