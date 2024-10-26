@@ -11,7 +11,7 @@ define B = Character("Michael Dacoity")
 define P = Character("Caze Solver")
 define C = Character("Crow")
 
-default talkedtocrow == False
+default talkedtocrow = False
 default foundcalendar = False
 default talkedtobutler = False
 default has_police_station=False
@@ -97,7 +97,7 @@ label BackAlley:
     #$ foundcalendar == true
     #talkedtocrow == true
     P "I am searching for someone that might have murdered the Lady of the local Mansion"
-    if (talkedtobutler == true) and (foundcalendar == true) : 
+    #if (talkedtobutler == true) and (foundcalendar == true): 
     C "Oh my, you have talked to the butler, haven't you?"
     P "Yes indeed, how could you tell?"
     C "I saw you leave the mansion, you should know crows are everywhere here"
@@ -113,12 +113,12 @@ label BackAlley:
         "Why would a crow bother with humans?":
             C "Because it is amusing, watching humans fight against one another"
             C "Now hush hush, go back and find the culprit, so that the poor soul may rest in peace"
-    else:
-        C "I do not know anything about a murder, do you have any clues?"
-        P "Looks like I've got all the pieces, just none of them fit. You got a fresh set of eyes on this?"
+    #else:
+            C "I do not know anything about a murder, do you have any clues?"
+            P "Looks like I've got all the pieces, just none of them fit. You got a fresh set of eyes on this?"
 
 
-        label talking_to_sir_gold:
+    label talking_to_sir_gold:
     show detective normal at left
     show sirgold normal at right
     $ talked_to_sir = True
@@ -128,12 +128,12 @@ label BackAlley:
         P "I am very sure she is innocent!"
         P "That is what I am here to proof! I will find the real killer!"
         menu:
-        "tell me about your affair" if knows_affair:
-            jump sirs_affair
-        "tell me about your butler":
-            jump sir_gold_on_butler
-        "leave":
-            jump murderer_room
+            "tell me about your affair" if knows_affair:
+                jump sirs_affair
+            "tell me about your butler":
+                jump sir_gold_on_butler
+            "leave":
+                jump murderer_room
 
 
 label sir_gold_on_butler:
