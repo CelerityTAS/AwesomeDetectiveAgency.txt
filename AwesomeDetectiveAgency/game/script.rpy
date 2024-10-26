@@ -9,13 +9,15 @@ define O = Character("Dishi Solver")
 define D = Character("Detective Pinkerton")
 define B = Character("Michael Dacoity")
 define P = Character("Caze Solver")
-
-
-default has_police_station=False
-default has_sirs_office=False
+define C = Character("Crow",color="#222222")
 
 default player_inventory = {'Business Card': "My Business Card"}
 
+screen pickevidence():
+    vbox:
+        align (0.5, 0.5)
+        for item in player_inventory:
+            textbutton "[item]" action Return(item)
 # Evidence
 
 # The game starts here.
@@ -95,15 +97,40 @@ label butler_accusation:
     menu:
         B "I invited you to this place so you could defend your grandma, why would I have done that if I murdered her"
         "You were trying to protect my Grandma":
-            pass
+            jump butler_accusation_sir_gold
         "You were framing Sir Gold instead!":
             jump butler_accusation_sir_gold
         "You were trying to bring me down too!":
-            $ butler_accusation_score = butler_accusation_score-1
+            $ butler_accusation_score = butler_accusation_score-2
             jump butler_accusation
     
     return
 
 label butler_accusation_sir_gold:
-    B "Sir Gold is innocent?"
+    show Butler wow
+    $ butler_accusation_score = butler_accusation_score+1
+    menu:
+        B "Sir Gold is innocent?"
+        "He was not home":
+            jump nothome
+        "He was sleeping":
+            jump after
+        "He witnessed the murder":
+            jump after
+    return
+
+label nothome:
+    call screen pickevidence
+    $ res = _return
+    "[res]"
+
+label butler2:
+    B "How did you know"
+    return
+
+label failure:
+    B "Okok you are dumb"
+    return
+
+label after:
     return
