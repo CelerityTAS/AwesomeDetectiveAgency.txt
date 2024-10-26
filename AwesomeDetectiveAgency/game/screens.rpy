@@ -582,8 +582,10 @@ screen inventory():
     tag menu
 
     use game_menu(_("Inventory"), scroll="viewport"):
-        has grid 2 3
+        has grid 2 len(player_inventory)+1
+        xspacing 3
         yspacing 20
+        xmaximum 640
         textbutton _("Pointy Stick" if accusation_mode else "Not so pointy Stick") action ToggleVariable("accusation_mode")
         text _("For accusing the murderer")
 
