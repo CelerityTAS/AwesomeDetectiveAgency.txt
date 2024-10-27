@@ -263,8 +263,9 @@ label talk_to_butler:
             zoom 0.5
             yalign 0.64
     if (accusation_mode):
+        $ accusation_mode = False
         jump butler_accusation
-        
+
     if (not talked_to_butler):
         $ talked_to_butler = True
         "Welcome to the Estate Sir"
@@ -287,6 +288,7 @@ label talking_to_crow:
             yalign 0.64
 
     if (accusation_mode):
+        $ accusation_mode = False
         jump crow_accusation
 
     if (not talkedtocrow):
@@ -427,6 +429,7 @@ label talking_to_sir_gold:
             yalign 0.64
 
     if (accusation_mode):
+        $ accusation_mode = False
         jump sir_accusation
     if (not talked_to_sir):
         $ talked_to_sir = True
@@ -434,7 +437,7 @@ label talking_to_sir_gold:
         M "However I must warn you that the police has already found the murderer, so there is nothing for you to do here"
         P "I am quite sure she is innocent!"
         P "That is what I am here to proof! I will find the real killer!"
-    menu:
+    menu sir_gold_menu:
         "Tell me about your affair" if knows_affair:
             jump sirs_affair
         "Tell me about your butler":
