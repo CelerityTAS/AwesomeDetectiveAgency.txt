@@ -51,6 +51,15 @@ label start:
             yalign 0.64
     #show detective normal at left
     # Anruf des Butlers
+    "Hello to this Game"
+    "If you happen to know who it is"
+    "I have put a 'Pointy Stick' into you inventory"
+    "If you know who it is 'talk to them' and you will accuse them"
+    "But be a bit careful with who you accuse"
+    "Anyway happy playing:"
+
+    "Oh the Phone is ringing"
+
     "Hello, is this the Caze Solver's Detective Agency?"
     
     P "Indeed it is, how may I be of assistance?"  
@@ -616,10 +625,10 @@ label witness_evidence:
     jump butler_accusation_outsider
 
 label nothome:
-        show butler normal at right: 
+    show butler normal at right: 
         zoom 0.5
         yalign 0.64
-    $ butler_accusation_score = butler_accusation_score+2
+    $ butler_accusation_score = butler_accusation_score+ 2
     menu :
         B "What was he doing then?"
         "He was at a Hostess club":
