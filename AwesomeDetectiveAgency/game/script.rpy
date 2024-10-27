@@ -72,7 +72,7 @@ label place_select:
         "Move to"
         "Estate":
             jump Estate
-        "Back Alley" if (unlocked_back_alley or (has_recent_calender)):
+        "Back Alley" if (unlocked_back_alley):
             jump BackAlley
         "Crime Scene" if unlocked_crime_scene:
             jump murderer_room
@@ -406,6 +406,7 @@ label inspect_murderer_room:
         "Inspect windows":
             "These windows are very clean, huh"
             if (foundcalendar == True) or ("Calendar" in player_inventory):
+                $ unlocked_back_alley = True
                 jump BackAlley
             else:
                 jump murderer_room
@@ -690,9 +691,9 @@ label butler_accusation_mafia:
     P "The Mafia!"
     menu:
         P "And proof for that is"
-        "the tatoo you have on your hand":
+        "the tattoo you have on your hand":
             jump butler_accusation_tatoo
-        "the tatoo you have on your foot":
+        "the tattoo you have on your foot":
             jump butler_accusation_tatoo
         "your earrings":
             jump butler_accusation_final_proof
