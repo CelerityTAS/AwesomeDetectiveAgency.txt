@@ -320,6 +320,8 @@ label murderer_room:
                 jump talking_to_sir_gold
             "Inspect":
                 jump inspect_murderer_room
+            "Leave":
+                jump place_select
     
 label inspect_murderer_room:
     show bg murderroom
@@ -371,7 +373,7 @@ label inspect_murderer_room:
                     P "Let's go somewhere with useful evidence"
 
         "Leave":
-            jump place_select
+            jump murderer_room
 
     jump inspect_murderer_room
 
