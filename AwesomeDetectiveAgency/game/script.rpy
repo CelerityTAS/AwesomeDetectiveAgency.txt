@@ -201,7 +201,7 @@ label talking_to_sir_gold:
 label sir_gold_on_butler:
     M "He is a good Butler, we have had him in our services for about 2 months now"
     P "Hmm ok"
-    M "What he doesn't talk much!"
+    M "What he doesn't talk much! ok"
     jump talking_to_sir_gold
 
 label sirs_affair:
