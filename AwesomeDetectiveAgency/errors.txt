@@ -2,9 +2,9 @@
 errors listed below, and try again.
 
 
-File "game/script.rpy", line 31: 'color' is not a keyword argument or valid child of the screen statement.
-    color "#ffffff" 
-         ^
+File "game/script.rpy", line 431: Line is followed by a block, despite not being a menu choice. Did you forget a colon at the end of the line?
+    "Any strange occurances on that day?"
+                                         ^
 
 Ren'Py Version: Ren'Py 8.3.2.24090902
-Sun Oct 27 14:56:57 2024
+Sun Oct 27 15:14:22 2024

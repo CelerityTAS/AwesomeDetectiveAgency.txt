@@ -428,7 +428,7 @@ label talking_to_sir_gold:
             P "can I see that kitchen?"
             M "No, my servants are currently preparing my food"
             jump sir_gold_menu
-        "Any strange occurances on that day?"
+        "Any strange occurances on that day?":
             M "Apart from the death of my wife?"
             M "I don't really remember anything"
             M "I did receive a few calls from mafiosos, that wanted to get my money. Hahaha"
