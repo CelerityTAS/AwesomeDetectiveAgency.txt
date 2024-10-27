@@ -327,6 +327,15 @@ label talking_to_crow:
             jump BackAlley
     jump talking_to_crow
 
+label crow_accusation: 
+    stop music
+    show crow murdernew:
+        zoom 3
+    C "I am the murderer, hahahahahaha"
+    play sound "crowlaugh.mp3"
+    P "Why did you kill the poor lady???"
+    C "It was funny seeing her bleed out like a pitful insect!"
+    return
 
 label murderer_room:
     $ unlocked_crime_scene = True
