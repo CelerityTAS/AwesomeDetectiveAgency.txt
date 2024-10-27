@@ -371,7 +371,7 @@ label inspect_murderer_room:
                     P "Let's go somewhere with useful evidence"
 
         "Leave":
-            jump murderer_room
+            jump place_select
 
     jump inspect_murderer_room
 
