@@ -2,9 +2,9 @@
 errors listed below, and try again.
 
 
-File "game/script.rpy", line 14: invalid syntax
-    = False
-     ^
+File "game/script.rpy", line 225: expected statement.
+    >>>>>>> parent of abdea63 (Merge branch 'main' of https://github.com/CelerityTAS/AwesomeDetectiveAgency.txt)
+                              ^
 
 Ren'Py Version: Ren'Py 8.3.2.24090902
-Sat Oct 26 20:11:12 2024
+Sun Oct 27 12:19:28 2024

@@ -11,11 +11,7 @@ define B = Character("Michael Dacoity")
 define P = Character("Caze Solver")
 define C = Character("Crow")
 
-<<<<<<< HEAD
 default talkedtocrow = False
-=======
-
->>>>>>> parent of abdea63 (Merge branch 'main' of https://github.com/CelerityTAS/AwesomeDetectiveAgency.txt)
 default foundcalendar = False
 default talked_to_butler = False
 default has_police_station=False
@@ -74,7 +70,7 @@ label place_select:
 
 
 label Estate:
-    show bg foyer
+    show bg estate
     show detective normal at left
     show butler normal at right
     if (not talked_to_butler):
@@ -105,9 +101,30 @@ label BackAlley:
 label inspect_Estate:
     menu:
         "Where to inspect"
+        "Piano":
+            P "Just and old Piano"
+            P "It is open"
+            "Boop Boop Beep Beep PeeP"
+            P "It is very out of tune. Must be just an art piece. Or someone is seriously tone deaf."
+            if (player_inventory["Note1"]=="An old note left by someone, it just has the date of the murder."):
+                P "This is where that Note used to be"
+                menu:
+                    P "Should I put it back?"
+                    "Yes":
+                        $ player_inventory.remove("Note1")
+                    "No":
+                        jump inspect_Estate
+            else :
+                P "Oh there is a note in the sheet music."
+                menu:
+                    P "Should I take a look at it?"
+                    "Yes":
+                        $ player_inventory["Note1"]="An old note left by someone, it just has the date of the murder."
+                    "No":
+                        jump inspect_Estate
         "Ok found everything":
             jump Estate
-    return
+    jump inspect_Estate
 
 label inspect_back_alley:
     menu:
