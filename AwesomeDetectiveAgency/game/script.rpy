@@ -39,7 +39,9 @@ label start:
     scene bg agency
     play music "audio/intro.mp3" volume 0.5
   
-    show anon at right
+    show anon at right: 
+            zoom 0.5
+            yalign 0.64
     #show detective normal at left
     # Anruf des Butlers
     "Hello, is this the Caze Solver's Detective Agency?"
@@ -58,6 +60,9 @@ label start:
     jump place_select
 
 label place_select:
+    hide anon
+    hide sirgold
+    hide butler
     menu:
         "Move to"
         "Estate":
@@ -70,8 +75,9 @@ label place_select:
 
 label Estate:
     show bg estate
-    show detective normal at left
-    show butler normal at right
+    show detective normal at left: 
+            zoom 0.5
+            yalign 0.64
     if (not talked_to_butler):
         jump talk_to_butler
     menu:
@@ -126,9 +132,13 @@ label inspect_Estate:
                         jump inspect_Estate
         "Paintings":
             P "A few old Paintings are hung up here."
-            show detective wrong at left
+            show detective wrong at left: 
+                zoom 0.5
+                yalign 0.64
             P "WAIT IS THAT MY GRANDMA???"
-            show detective normal at left
+            show detective normal at left: 
+                zoom 0.5
+                yalign 0.64
             P "I guess she was already extraordinarily strong!"
             P "I guess the other one is from Lady Gold"
             menu paintings:
@@ -181,7 +191,7 @@ label inspect_Estate:
 label inspect_back_alley:
     menu:
         "Where to inspect"
-        "That Poster":
+        "'some girl' Poster":
             P "Oh it is a pop culture reference!"
             if (cantalk_to_crow):
                 C "I love that game"
@@ -191,6 +201,11 @@ label inspect_back_alley:
                 P "all conductors are better than penguins"
             else:
                 P "Damn I want someone to talk to about this game"
+        "Wright does it right-Poster":
+            P "Oh it is that damn Lawyer again"
+            P "I hear he is never wrong"
+            P "Probably could give me some competition!"
+            jump inspect_back_alley
         "Trash Can":
             P "Who has this much trash?"
             P "I think I just saw a crow eating in here!"
@@ -229,6 +244,9 @@ label inspect_back_alley:
 
     
 label talk_to_butler:
+    show butler normal at right: 
+            zoom 0.5
+            yalign 0.64
     if (not talked_to_butler):
         $ talked_to_butler = True
         "Welcome to the Estate Sir"
@@ -244,6 +262,15 @@ label talk_to_butler:
     jump talk_to_butler
 
 label talking_to_crow:
+    hide butler
+    hide sirgold
+    show crow normal at right: 
+            zoom 0.5
+            yalign 0.64
+
+    if ("a" in player_inventory):
+        jump crow_accusation
+
     if (not talkedtocrow):
         $ talkedtocrow = True
         $ cantalk_to_crow = True
@@ -258,7 +285,8 @@ label talking_to_crow:
         C "Oh my, you have talked to the butler, haven't you?"
         P "Yes indeed, how could you tell?"
         C "I saw you enter the mansion, you should know crows are everywhere here"
-        C "I can assure you that the murderer is somewhere within the mansion, as I have not seen any person leave after the incident"
+        C "I can assure you that the murderer is somewhere within the mansion."
+        C "haven't seen any person leave after that Lady was killed!"
         show detective wrong at left: 
             zoom 0.5
             yalign 0.64
@@ -280,9 +308,6 @@ label talking_to_crow:
     jump talking_to_crow
 
 
-
-
-### Talking to Sir Gold
 label murderer_room:
     if (not talked_to_sir):
         B "This is the crime Scene"
@@ -301,8 +326,14 @@ label inspect_murderer_room:
     P "I am inspecting the murderer room!"
 
 label talking_to_sir_gold:
-    show detective normal at left
-    show sirgold normal at right
+    hide crow
+    hide butler
+    show detective normal at left: 
+            zoom 0.5
+            yalign 0.64
+    show sirgold normal at right: 
+            zoom 0.5
+            yalign 0.64
     if (not talked_to_sir):
         $ talked_to_sir = True
         M "Oh hello, you must be the Detective I heard is investigating the death of my poor wife."
@@ -325,15 +356,23 @@ label sir_gold_on_butler:
     jump talking_to_sir_gold
 
 label sirs_affair:
-    show detective normal at left
-    show sirgold normal at right
+    show detective normal at left: 
+            zoom 0.5
+            yalign 0.64
+    show sirgold normal at right: 
+            zoom 0.5
+            yalign 0.64
     M "it hurts to say this, but I had secretly been meeting other women besides my wife"
     M "She definitely never found out though!"
     P "Yeah yeah"
     P "So where were you really, when your wife was killed"
-    show sirgold shocked at right
+    show sirgold shocked at right: 
+            zoom 0.5
+            yalign 0.64
     M "Ok waow, you knew that was a lie too."
-    show sirgold normal at right
+    show sirgold normal at right: 
+            zoom 0.5
+            yalign 0.64
     M "I was really with my new miss in a fancy restaurant a few hours away from here"
     M "That means I cannot have murdered my wife, yes!"
     P "We will see about that"
@@ -345,8 +384,12 @@ label sir_not_home:
 
 ### Sir Accusation
 label sir_accusation:
-    show detective normal at left
-    show sirgold shocked at right
+    show detective normal at left: 
+            zoom 0.5
+            yalign 0.64
+    show sirgold shocked at right: 
+            zoom 0.5
+            yalign 0.64
     M "You think I murdered my wife?"
     M "Are you insane?"
     M "I know I shouldn't have let some loosey doosey detective snoop around the place"
@@ -363,9 +406,13 @@ label sir_accusation:
 label sir_accusation_affair:
     if (knows_affair):
         M "But if I wasn't here, I could not have murdered my wife you idiot"
-        show detective wrong at left
+        show detective wrong at left: 
+            zoom 0.5
+            yalign 0.64
         P "Guess I missed that"
-        show detective normal at left
+        show detective normal at left: 
+            zoom 0.5
+            yalign 0.64
         jump sir_accusation_evidence
     else: 
         jump sir_not_home
@@ -379,7 +426,9 @@ label sir_accusation_grandma_fired:
 label sir_accusation_not_home:
     M "But if I wasn't home, then I could not have murdered my wife?"
     M "You seem to be confused"
-    show Player wrong at left
+    show Player wrong at left: 
+            zoom 0.5
+            yalign 0.64
     if (knows_affair):
         jump sir_accusation_evidence
     else:
@@ -407,7 +456,9 @@ label butler_accusation:
     return
 
 label butler_accusation_sir_gold:
-    show butler shocked at right
+    show butler shocked at right: 
+            zoom 0.5
+            yalign 0.64
     $ butler_accusation_score = butler_accusation_score+1
     menu:
         B "Sir Gold is innocent?"
@@ -420,11 +471,15 @@ label butler_accusation_sir_gold:
     return
 
 label sleeping_evidence:
-    show butler normal at right
+    show butler normal at right: 
+            zoom 0.5
+            yalign 0.64
     call screen pickevidence
     B "Sorry, but that is not at all evidence he was sleeping!"
 label witness_evidence:
-    show butler normal at right
+    show butler normal at right: 
+            zoom 0.5
+            yalign 0.64
     call screen pickevidence
     B "Sorry, but that doesn't prove anything"
 
@@ -446,12 +501,16 @@ label not_home_evidence:
     call screen pickevidence
     $ res = _return
     if (correct and (res=="Diary" or res=="Calendar")):
-        show butler shocked at right
+        show butler shocked at right: 
+            zoom 0.5
+            yalign 0.64
         B "Oh I guess he couldn't have done it then"
         $ butler_accusation_score = butler_accusation_score + 2
         jump butler_accusation_outsider
     else:
-        show butler normal at right
+        show butler normal at right: 
+            zoom 0.5
+            yalign 0.64
         B "What does that prove?"
         $ butler_accusation_score = butler_accusation_score-3
         B "Anyway, even if it wasn't him, because he wasn't here"
@@ -467,16 +526,24 @@ label butler_accusation_outsider:
         
 label GrandmaNinjaDefendingOutsiders:
     B "I thought your grandma was sleeping?"
-    show detective wrong at left
+    show detective wrong at left: 
+            zoom 0.5
+            yalign 0.64
     P "Oh yeah, I forgot"
     jump butler_accusation_grandma
 
 label butler_accusation_grandma:
-    show detective normal at left
+    show detective normal at left: 
+            zoom 0.5
+            yalign 0.64
     B "I guess then it must have been your Grandma I truely am sorry."
-    show detective shocked at left
+    show detective shocked at left: 
+            zoom 0.5
+            yalign 0.64
     P "How dare you"
-    show detective normal at left
+    show detective normal at left: 
+            zoom 0.5
+            yalign 0.64
     B "You still have not presented me with proof!"
     jump butler_accusation_final
 
@@ -495,9 +562,13 @@ label butler_accusation_final:
 
 label butler_accusation_revenge:
     B "I never disliked Lady Gold or Sir Gold, you cannot be serious!"
-    show detective wrong at left
+    show detective wrong at left: 
+            zoom 0.5
+            yalign 0.64
     P "I guess I missed that"
-    show detective normal at left
+    show detective normal at left: 
+            zoom 0.5
+            yalign 0.64
     $ butler_accusation_score = butler_accusation_score-3
     jump butler_accusation_conclusion
 
