@@ -57,7 +57,6 @@ label start:
     jump place_select
 
 label place_select:
-    show bg agency
     menu:
         "Move to"
         "Estate":
@@ -80,6 +79,8 @@ label Estate:
             jump inspect_Estate
         "Talk to Butler":
             jump talk_to_butler
+        "Move":
+            jump place_select
 
 label BackAlley:
     scene bg alley
@@ -114,16 +115,18 @@ label inspect_back_alley:
     
 label talk_to_butler:
     if (not talked_to_butler):
+        $ talked_to_butler = True
         "Welcome to the Estate Sir"
-        menu:
-            "Where is my Grandma?":
-                B "She is at the police station, in custody"
-                B "I asked you to come here so you could look at the crime scene and prove her innocence!"
-            "Show me to the Crime Scene":
-                B "Of course!"
-                jump murderer_room
-            "Leave":
-                jump place_select
+    menu:
+        "Where is my Grandma?":
+            B "She is at the police station, in custody"
+            B "I asked you to come here so you could look at the crime scene and prove her innocence!"
+        "Show me to the Crime Scene":
+            B "Of course!"
+            jump murderer_room
+        "Leave":
+            jump place_select
+    jump talk_to_butler
 
 label talking_to_crow:
     if (not talkedtocrow):
@@ -183,19 +186,19 @@ label inspect_murderer_room:
 label talking_to_sir_gold:
     show detective normal at left
     show sirgold normal at right
-    $ talked_to_sir = True
     if (not talked_to_sir):
+        $ talked_to_sir = True
         M "Oh hello, you must be the Detective I heard is investigating the death of my poor wife."
         M "However I must warn you that the police has already found the murderer, so there is nothing for you to do here"
         P "I am very sure she is innocent!"
         P "That is what I am here to proof! I will find the real killer!"
-        menu:
-            "tell me about your affair" if knows_affair:
-                jump sirs_affair
-            "tell me about your butler":
-                jump sir_gold_on_butler
-            "leave":
-                jump murderer_room
+    menu:
+        "tell me about your affair" if knows_affair:
+            jump sirs_affair
+        "tell me about your butler":
+            jump sir_gold_on_butler
+        "leave":
+            jump murderer_room
 
 
 label sir_gold_on_butler:
