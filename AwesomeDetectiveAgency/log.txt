@@ -1,19 +1,318 @@
-2024-10-27 10:33:14 UTC
+2024-10-26 18:08:04 UTC
 Windows-10-10.0.22631
 Ren'Py 8.3.2.24090902
 
-Early init took 0.04s
-Loading error handling took 0.02s
-Loading script took 0.21s
+Early init took 0.09s
+Loading error handling took 0.03s
+Loading script took 0.77s
+Loading save slot metadata took 0.04s
+Loading persistent took 0.00s
+
+File "game/script.rpy", line 100: if statement expects a non-empty block.
+    if (talkedtobutler == true) and (foundcalendar == true) : 
+                                                              ^
+
+File "game/script.rpy", line 116: expected statement.
+    else:
+        ^
+
+File "game/script.rpy", line 130: menu statement expects a non-empty block.
+    menu:
+        ^
+
+File "game/script.rpy", line 131: expected statement.
+    "tell me about your affair" if knows_affair:
+                                ^
+
+File "game/script.rpy", line 133: expected statement.
+    "tell me about your butler":
+                               ^
+
+File "game/script.rpy", line 135: expected statement.
+    "leave":
+           ^
+DPI scale factor: 1.500000
+nvdrs: Loaded, about to disable thread optimizations.
+nvdrs: b"Couldn't load nvlib." (can be ignored)
+Interface start took 0.43s
+
+Initializing gl2 renderer:
+primary display bounds: (0, 0, 1920, 1080)
+swap interval: 1 frames
+Windowed mode.
+Vendor: "b'Intel'"
+Renderer: b'Intel(R) Iris(R) Xe Graphics'
+Version: b'4.6.0 - Build 30.0.101.1692'
+Display Info: None
+Screen sizes: virtual=(1920, 1080) physical=(1731, 974) drawable=(1731, 974)
+Maximum texture size: 4096x4096
+Resetting cache.
+Early init took 52.35s
+Loading error handling took 0.04s
+Loading script took 0.74s
 Loading save slot metadata took 0.02s
 Loading persistent took 0.00s
-Running init code took 0.03s
+
+File "game/script.rpy", line 116: expected statement.
+    else:
+        ^
+
+File "game/script.rpy", line 130: menu statement expects a non-empty block.
+    menu:
+        ^
+
+File "game/script.rpy", line 131: expected statement.
+    "tell me about your affair" if knows_affair:
+                                ^
+
+File "game/script.rpy", line 133: expected statement.
+    "tell me about your butler":
+                               ^
+
+File "game/script.rpy", line 135: expected statement.
+    "leave":
+           ^
+DPI scale factor: 1.500000
+nvdrs: Loaded, about to disable thread optimizations.
+nvdrs: b"Couldn't load nvlib." (can be ignored)
+Interface start took 0.17s
+
+Initializing gl2 renderer:
+primary display bounds: (0, 0, 1920, 1080)
+swap interval: 1 frames
+Windowed mode.
+Vendor: "b'Intel'"
+Renderer: b'Intel(R) Iris(R) Xe Graphics'
+Version: b'4.6.0 - Build 30.0.101.1692'
+Display Info: None
+Screen sizes: virtual=(1920, 1080) physical=(1731, 974) drawable=(1731, 974)
+Maximum texture size: 4096x4096
+Resetting cache.
+Early init took 66.88s
+Loading error handling took 0.05s
+Loading script took 0.73s
+Loading save slot metadata took 0.02s
+Loading persistent took 0.00s
+
+File "game/script.rpy", line 105: show statement expects a non-empty block.
+    show detective wrong at left with easeinleft: 
+                                                 ^
+
+File "game/script.rpy", line 106: expected statement.
+    zoom 0.5
+          ^
+
+File "game/script.rpy", line 107: expected statement.
+    yalign 0.64
+            ^
+
+File "game/script.rpy", line 108: menu statement expects a non-empty block.
+    menu:
+        ^
+
+File "game/script.rpy", line 109: expected statement.
+    "Why should I trust you?":
+                             ^
+
+File "game/script.rpy", line 113: expected statement.
+    "Why would a crow bother with humans?":
+                                          ^
+
+File "game/script.rpy", line 130: menu statement expects a non-empty block.
+    menu:
+        ^
+
+File "game/script.rpy", line 131: expected statement.
+    "tell me about your affair" if knows_affair:
+                                ^
+
+File "game/script.rpy", line 133: expected statement.
+    "tell me about your butler":
+                               ^
+
+File "game/script.rpy", line 135: expected statement.
+    "leave":
+           ^
+DPI scale factor: 1.500000
+nvdrs: Loaded, about to disable thread optimizations.
+nvdrs: b"Couldn't load nvlib." (can be ignored)
+Interface start took 0.17s
+
+Initializing gl2 renderer:
+primary display bounds: (0, 0, 1920, 1080)
+swap interval: 1 frames
+Windowed mode.
+Vendor: "b'Intel'"
+Renderer: b'Intel(R) Iris(R) Xe Graphics'
+Version: b'4.6.0 - Build 30.0.101.1692'
+Display Info: None
+Screen sizes: virtual=(1920, 1080) physical=(1731, 974) drawable=(1731, 974)
+Maximum texture size: 4096x4096
+Resetting cache.
+Early init took 84.47s
+Loading error handling took 0.04s
+Loading script took 0.72s
+Loading save slot metadata took 0.02s
+Loading persistent took 0.00s
+
+File "game/script.rpy", line 101: Line is indented, but the preceding say statement statement does not expect a block. Please check this line's indentation. You may have forgotten a colon (:).
+    C "Oh my, you have talked to the butler, haven't you?"
+    ^
+
+File "game/script.rpy", line 130: menu statement expects a non-empty block.
+    menu:
+        ^
+
+File "game/script.rpy", line 131: expected statement.
+    "tell me about your affair" if knows_affair:
+                                ^
+
+File "game/script.rpy", line 133: expected statement.
+    "tell me about your butler":
+                               ^
+
+File "game/script.rpy", line 135: expected statement.
+    "leave":
+           ^
+DPI scale factor: 1.500000
+nvdrs: Loaded, about to disable thread optimizations.
+nvdrs: b"Couldn't load nvlib." (can be ignored)
+Interface start took 0.18s
+
+Initializing gl2 renderer:
+primary display bounds: (0, 0, 1920, 1080)
+swap interval: 1 frames
+Windowed mode.
+Vendor: "b'Intel'"
+Renderer: b'Intel(R) Iris(R) Xe Graphics'
+Version: b'4.6.0 - Build 30.0.101.1692'
+Display Info: None
+Screen sizes: virtual=(1920, 1080) physical=(1731, 974) drawable=(1731, 974)
+Maximum texture size: 4096x4096
+Resetting cache.
+Early init took 149.38s
+Loading error handling took 0.04s
+Loading script took 0.73s
+Loading save slot metadata took 0.02s
+Loading persistent took 0.00s
+
+File "game/script.rpy", line 108: menu statement expects a non-empty block.
+    menu:
+        ^
+
+File "game/script.rpy", line 109: expected statement.
+    "Why should I trust you?":
+                             ^
+
+File "game/script.rpy", line 113: expected statement.
+    "Why would a crow bother with humans?":
+                                          ^
+
+File "game/script.rpy", line 130: menu statement expects a non-empty block.
+    menu:
+        ^
+
+File "game/script.rpy", line 131: expected statement.
+    "tell me about your affair" if knows_affair:
+                                ^
+
+File "game/script.rpy", line 133: expected statement.
+    "tell me about your butler":
+                               ^
+
+File "game/script.rpy", line 135: expected statement.
+    "leave":
+           ^
+DPI scale factor: 1.500000
+nvdrs: Loaded, about to disable thread optimizations.
+nvdrs: b"Couldn't load nvlib." (can be ignored)
+Interface start took 0.17s
+
+Initializing gl2 renderer:
+primary display bounds: (0, 0, 1920, 1080)
+swap interval: 1 frames
+Windowed mode.
+Vendor: "b'Intel'"
+Renderer: b'Intel(R) Iris(R) Xe Graphics'
+Version: b'4.6.0 - Build 30.0.101.1692'
+Display Info: None
+Screen sizes: virtual=(1920, 1080) physical=(1731, 974) drawable=(1731, 974)
+Maximum texture size: 4096x4096
+Resetting cache.
+Early init took 170.70s
+Loading error handling took 0.05s
+Loading script took 0.70s
+Loading save slot metadata took 0.02s
+Loading persistent took 0.00s
+
+File "game/script.rpy", line 130: menu statement expects a non-empty block.
+    menu:
+        ^
+
+File "game/script.rpy", line 131: expected statement.
+    "tell me about your affair" if knows_affair:
+                                ^
+
+File "game/script.rpy", line 133: expected statement.
+    "tell me about your butler":
+                               ^
+
+File "game/script.rpy", line 135: expected statement.
+    "leave":
+           ^
+DPI scale factor: 1.500000
+nvdrs: Loaded, about to disable thread optimizations.
+nvdrs: b"Couldn't load nvlib." (can be ignored)
+Interface start took 0.17s
+
+Initializing gl2 renderer:
+primary display bounds: (0, 0, 1920, 1080)
+swap interval: 1 frames
+Windowed mode.
+Vendor: "b'Intel'"
+Renderer: b'Intel(R) Iris(R) Xe Graphics'
+Version: b'4.6.0 - Build 30.0.101.1692'
+Display Info: None
+Screen sizes: virtual=(1920, 1080) physical=(1731, 974) drawable=(1731, 974)
+Maximum texture size: 4096x4096
+Resetting cache.
+Early init took 187.23s
+Loading error handling took 0.04s
+Loading script took 0.73s
+Loading save slot metadata took 0.02s
+Loading persistent took 0.00s
+
+File "game/script.rpy", line 14: invalid syntax
+    = False
+     ^
+DPI scale factor: 1.500000
+nvdrs: Loaded, about to disable thread optimizations.
+nvdrs: b"Couldn't load nvlib." (can be ignored)
+Interface start took 0.17s
+
+Initializing gl2 renderer:
+primary display bounds: (0, 0, 1920, 1080)
+swap interval: 1 frames
+Windowed mode.
+Vendor: "b'Intel'"
+Renderer: b'Intel(R) Iris(R) Xe Graphics'
+Version: b'4.6.0 - Build 30.0.101.1692'
+Display Info: None
+Screen sizes: virtual=(1920, 1080) physical=(1731, 974) drawable=(1731, 974)
+Maximum texture size: 4096x4096
+Resetting cache.
+Early init took 198.77s
+Loading error handling took 0.04s
+Loading script took 0.71s
+Loading save slot metadata took 0.02s
+Loading persistent took 0.00s
+Running init code took 0.08s
 Loading analysis data took 0.01s
 Analyze and compile ATL took 0.00s
 Reloading save slot metadata took 0.02s
 Index archives took 0.00s
-Backing up script files to 'C:\\Users\\zined\\AppData\\Roaming/RenPy/backups\\AwesomeDetectiveAgency':
-Dump and make backups took 0.03s
+Backing up script files to 'C:\\Users\\loewe\\AppData\\Roaming/RenPy/backups\\AwesomeDetectiveAgency':
+Dump and make backups took 0.05s
 Cleaning cache took 0.00s
 Making clean stores took 0.00s
 Initial gc took 0.03s
@@ -22,16 +321,16 @@ nvdrs: Loaded, about to disable thread optimizations.
 nvdrs: b"Couldn't load nvlib." (can be ignored)
 Creating interface object took 0.00s
 Cleaning stores took 0.00s
-Init translation took 0.02s
+Init translation took 0.03s
 Build styles took 0.00s
 Load screen analysis took 0.00s
 Analyze screens took 0.01s
-Save screen analysis took 0.01s
-Prepare screens took 0.04s
+Save screen analysis took 0.02s
+Prepare screens took 0.06s
 Save pyanalysis. took 0.01s
 Save bytecode. took 0.02s
 Running _start took 0.00s
-Interface start took 0.13s
+Interface start took 0.16s
 
 Initializing gl2 renderer:
 primary display bounds: (0, 0, 1920, 1080)
@@ -39,25 +338,7 @@ swap interval: 1 frames
 Windowed mode.
 Vendor: "b'Intel'"
 Renderer: b'Intel(R) Iris(R) Xe Graphics'
-Version: b'4.6.0 - Build 31.0.101.5186'
+Version: b'4.6.0 - Build 30.0.101.1692'
 Display Info: None
 Screen sizes: virtual=(1920, 1080) physical=(1731, 974) drawable=(1731, 974)
 Maximum texture size: 4096x4096
-
-Full traceback:
-  File "game/script.rpy", line 101, in script
-    $ foundcalendar == true
-  File "C:\Users\zined\OneDrive\Документы\renpy-8.3.2-sdk\renpy\ast.py", line 821, in execute
-    renpy.python.py_exec_bytecode(self.code.bytecode, self.hide, store=self.store)
-  File "C:\Users\zined\OneDrive\Документы\renpy-8.3.2-sdk\renpy\python.py", line 1178, in py_exec_bytecode
-    exec(bytecode, globals, locals)
-  File "game/script.rpy", line 101, in <module>
-    $ foundcalendar == true
-NameError: name 'true' is not defined
-
-While running game code:
-  File "game/script.rpy", line 101, in script
-    $ foundcalendar == true
-  File "game/script.rpy", line 101, in <module>
-    $ foundcalendar == true
-NameError: name 'true' is not defined

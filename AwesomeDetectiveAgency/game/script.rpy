@@ -11,7 +11,11 @@ define B = Character("Michael Dacoity")
 define P = Character("Caze Solver")
 define C = Character("Crow")
 
+<<<<<<< HEAD
 default talkedtocrow = False
+=======
+
+>>>>>>> parent of abdea63 (Merge branch 'main' of https://github.com/CelerityTAS/AwesomeDetectiveAgency.txt)
 default foundcalendar = False
 default talkedtobutler = False
 default has_police_station=False
@@ -34,28 +38,27 @@ label start:
 
     scene bg agency
     play music "audio/intro.mp3" volume 0.5
+  
+    show anon at right
     #show detective normal at left
     # Anruf des Butlers
-    show anon normal at right with easeinright: 
-        zoom 0.5
-        yalign 0.64
     "Hello, is this the Caze Solver's Detective Agency?"
     
     # TODO: remove this
-    #jump talking_to_sir_gold
+    jump talking_to_sir_gold
     #jump butler_accusation
-    #show detective wrong
-    P "Indeed, how may I be of assistance?"  
+    # show detective smug
+    P "You have indeed, how may I be of assistance?"  
 
     "I am Michael Dacoity"
+    # show anon default
+    "I am "
     B "Your Grandma and I have been working at the Howards Estate for a few months now."
-    hide anon normal
-    show butler normal at right with easeinright:
-        zoom 0.5
-        yalign 0.64
+    show anon scared
     B "Yesterday Lady Bennington, Sir Howards wife was murdered!"
     B "The Police seems to believe your grandma was the murderer"
     B "I cannot fathom sweet poor old Lily being a cold blooded murderer"
+    show anon default
     B "Please visit me at the Estate, Please hurry, before your grandma is behind bars."
     jump place_select
 
@@ -74,6 +77,7 @@ label place_select:
 label Estate1:
     show bg estate
     show butler 
+
     menu Estate1B1:
         "Welcome to the Estate Sir"
         "Where is my Grandma?":
@@ -92,48 +96,76 @@ label BackAlley:
     show crow normal at right with easeinright:
         zoom 0.5
         yalign 0.64
+        
+        #change scale
     C "Hello, who might you be?"
     show detective normal at left with easeinleft: 
         zoom 0.5
         yalign 0.64
+<<<<<<< HEAD
     #placeholer calendar aufgehoben
     #default player_inventory = {'Calendar'}
-    $ foundcalendar == True
-    $ talkedtobutler == True
+    #$ foundcalendar == true
+    #talkedtocrow == true
     P "I am searching for someone that might have murdered the Lady of the local Mansion"
-    if (talkedtobutler == True) and (foundcalendar == True): 
-        C "Oh my, you have talked to the butler, haven't you?"
-        P "Yes indeed, how could you tell?"
-        C "I saw you leave the mansion, you should know crows are everywhere here"
-        C "I can assure you that the murderer is somewhere within the mansion, as I have not seen any person leave after the incident"
-        show detective wrong at left with easeinleft: 
-            zoom 0.5
-            yalign 0.64
-        menu:
-            "Why should I trust you?":
-                C "Why shouldn't you? You seem to be in distress, because you havent found the murderer and time is running out"
-                C "Now hush hush, go back and find the culprit, so that the poor soul may rest in peace"
-                jump place_select
-            "Why would a crow bother with humans?":
-                C "Because it is amusing, watching humans fight against one another"
-                C "Now hush hush, go back and find the culprit, so that the poor soul may rest in peace"
-                jump place_select
+    #if (talkedtobutler == true) and (foundcalendar == true): 
+    C "Oh my, you have talked to the butler, haven't you?"
+    P "Yes indeed, how could you tell?"
+    C "I saw you leave the mansion, you should know crows are everywhere here"
+    C "I can assure you that the murderer is somewhere within the mansion, as I have not seen any person leave after the incident"
+    show detective wrong at left with easeinleft: 
+        zoom 0.5
+        yalign 0.64
+    menu:
+        "Why should I trust you?":
+            C "Why shouldn't you? You seem to be in distress, because you havent found the murderer and time is running out"
+            C "Now hush hush, go back and find the culprit, so that the poor soul may rest in peace"
 
-        $ talkedtocrow == true
-    else:
+        "Why would a crow bother with humans?":
+            C "Because it is amusing, watching humans fight against one another"
+            C "Now hush hush, go back and find the culprit, so that the poor soul may rest in peace"
+    #else:
+            C "I do not know anything about a murder, do you have any clues?"
             P "Looks like I've got all the pieces, just none of them fit. You got a fresh set of eyes on this?"
-            C "I do not know anything about a murder, now hush hush, go back and find the culprit"
-            jump place_select
+
+
+    label talking_to_sir_gold:
+=======
+
+    #P "I am searching for someone that might have murdered the Lady of the local Mansion"
+    #if (talkedtobutler == true) and (foundcalendar == true) : 
+    #   C "Oh my, you have talked to the butler, haven't you?"
+    #   P "Yes indeed, how could you tell?"
+    #   C "I saw you leave the mansion, and you should know crows"
+
+### Talking to Sir Gold
+
+label murderer_room:
+    if (not talking_to_sir_gold):
+        jump talking_to_sir_gold
+    B "This is the crime Scene"
+    return
+
 
 label talking_to_sir_gold:
-show detective normal at left
-show sirgold normal at right
-$ talked_to_sir = True
-if (not talked_to_sir):
-    M "Oh hello, you must be the Detective I heard is investigating the death of my poor wife."
-    M "However I must warn you that the police has already found the murderer, so there is nothing for you to do here"
-    P "I am very sure she is innocent!"
-    P "That is what I am here to proof! I will find the real killer!"
+>>>>>>> parent of abdea63 (Merge branch 'main' of https://github.com/CelerityTAS/AwesomeDetectiveAgency.txt)
+    show detective normal at left
+    show sirgold normal at right
+    $ talked_to_sir = True
+    if (not talked_to_sir):
+        M "Oh hello, you must be the Detective I heard is investigating the death of my poor wife."
+        M "However I must warn you that the police has already found the murderer, so there is nothing for you to do here"
+        P "I am very sure she is innocent!"
+        P "That is what I am here to proof! I will find the real killer!"
+<<<<<<< HEAD
+        menu:
+            "tell me about your affair" if knows_affair:
+                jump sirs_affair
+            "tell me about your butler":
+                jump sir_gold_on_butler
+            "leave":
+                jump murderer_room
+=======
     menu:
         "tell me about your affair" if knows_affair:
             jump sirs_affair
@@ -141,6 +173,7 @@ if (not talked_to_sir):
             jump sir_gold_on_butler
         "leave":
             jump murderer_room
+>>>>>>> parent of abdea63 (Merge branch 'main' of https://github.com/CelerityTAS/AwesomeDetectiveAgency.txt)
 
 
 label sir_gold_on_butler:
@@ -152,7 +185,7 @@ label sir_gold_on_butler:
 label sirs_affair:
     show detective normal at left
     show sirgold normal at right
-    M "It hurts to say this, but I had secretly been meeting other women besides my wife"
+    M "it hurts to say this, but I had secretly been meeting other women besides my wife"
     M "She definitely never found out though!"
     P "Yeah yeah"
     P "So where were you really, when your wife was killed"
