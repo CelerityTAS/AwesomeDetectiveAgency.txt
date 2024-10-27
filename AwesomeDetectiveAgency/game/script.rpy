@@ -47,15 +47,13 @@ label start:
     P "You have indeed, how may I be of assistance?"  
 
     "I am Michael Dacoity"
-    # show anon default
-    "I am "
     B "Your Grandma and I have been working at the Howards Estate for a few months now."
     # show anon scared
     B "Yesterday Lady Bennington, Sir Howards wife was murdered!"
     B "The Police seems to believe your grandma was the murderer"
     B "I cannot fathom sweet poor old Lily being a cold blooded murderer"
-    show anon
     B "Please visit me at the Estate, Please hurry, before your grandma is behind bars."
+    hide anon
     jump place_select
 
 label place_select:
@@ -99,6 +97,8 @@ label BackAlley:
 
 
 label inspect_Estate:
+    hide butler
+    hide sirgold
     menu:
         "Where to inspect"
         "Piano":
@@ -106,12 +106,12 @@ label inspect_Estate:
             P "It is open"
             "Boop Boop Beep Beep PeeP"
             P "It is very out of tune. Must be just an art piece. Or someone is seriously tone deaf."
-            if (player_inventory["Note1"]=="An old note left by someone, it just has the date of the murder."):
+            if ("Note1" in player_inventory):
                 P "This is where that Note used to be"
                 menu:
                     P "Should I put it back?"
                     "Yes":
-                        $ player_inventory.remove("Note1")
+                        $ player_inventory.pop("Note1")
                     "No":
                         jump inspect_Estate
             else :
@@ -120,8 +120,59 @@ label inspect_Estate:
                     P "Should I take a look at it?"
                     "Yes":
                         $ player_inventory["Note1"]="An old note left by someone, it just has the date of the murder."
+                        P "Ok I got it"
                     "No":
                         jump inspect_Estate
+        "Paintings":
+            P "A few old Paintings are hung up here."
+            show detective wrong at left
+            P "WAIT IS THAT MY GRANDMA???"
+            show detective normal at left
+            P "I guess she was already extraordinarily strong!"
+            P "I guess the other one is from Lady Gold"
+            menu paintings:
+                "What Painting to look at further"
+                "Pie Thing":
+                    P "I never understood abstract art"
+                    P "Oh, this is just a pie chart of the company earnings"
+                    P "Why would you hang that up in your home"
+                    P "Wait does that say 'Money Laundering???'"
+                    jump paintings
+                "Sir":
+                    P "A fine gentleman"
+                    P "I wonder where he gets his suits"
+                    if ("Note3" in player_inventory):
+                        P "This is where that Note used to be"
+                        menu:
+                            P "Should I put it back?"
+                            "Put it Back":
+                                $ player_inventory.pop("Note3")
+                            "Keep it":
+                                jump paintings
+                    else:
+                        P "Oh there is a note hidden behind the painting"
+                        menu:
+                            "Take it!":
+                                $ player_inventory["Note3"]="An Old note left by someone, it just has 3 PM on it."
+                            "Leave it":
+                                jump paintings
+                    jump paintings
+                "Grandma":
+                    P "She is buff!"
+                    P "Almost makes me wanna believe she did it!"
+                    P "She could probably beat up a few Gangsters on her own if she wanted to!"
+                    P "That reminds me, that I never asked her, what she used to do before becoming a cleaning lady"
+                    P "I guess it must have paid well, I mean she has her own little fortune"
+                    P "She never really talkes about her past..."
+                    jump paintings
+                "Lady":
+                    P "seems to be the dead lady. "
+                    P "I will find whoever killed you!"
+                    jump paintings
+                "Enough of the Paintings!":
+                    jump inspect_Estate
+        "Under the Carpet":
+            P "I am very much not lifting this carpet!!"
         "Ok found everything":
             jump Estate
     jump inspect_Estate
@@ -194,6 +245,7 @@ label murderer_room:
     if (not talked_to_sir):
         B "This is the crime Scene"
         B "Oh and sir gold seems to want to talk to us"
+        hide butler
         jump talking_to_sir_gold
     else:
         menu:
@@ -221,8 +273,7 @@ label talking_to_sir_gold:
         "tell me about your butler":
             jump sir_gold_on_butler
         "leave":
-            jump murderer_room
->>>>>>> parent of abdea63 (Merge branch 'main' of https://github.com/CelerityTAS/AwesomeDetectiveAgency.txt)
+            jump place_select
 
 
 label sir_gold_on_butler:
