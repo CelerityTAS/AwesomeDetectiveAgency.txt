@@ -317,7 +317,7 @@ label murderer_room:
         menu:
             "What should I do?"
             "Talk to Sir Gold":
-                jump talked_to_sir_gold
+                jump talking_to_sir_gold
             "Inspect":
                 jump inspect_murderer_room
     
@@ -349,7 +349,6 @@ label inspect_murderer_room:
             "Picked up the fragments"
             $ player_inventory ["Vase fragments"] = "Shattered remains of the once beautiful vase"
 
-        #yes or no
         "Inspect the calendar" if (not "Calendar" in player_inventory):
             P "Found the calendar!"
             menu:
@@ -359,7 +358,7 @@ label inspect_murderer_room:
                     P "The 27th is marked as a special date, maybe I can ask around"
                 "No":
                     P "Why would a calendar even be useful? I'm just wasting my time here"
-        #yes or no  
+          
         "Inspect the letter" if (not "Note2" in player_inventory):
             P "Seems like I found some kind of letter, very intriguing"
             menu: 
@@ -371,7 +370,9 @@ label inspect_murderer_room:
                     P "I don't care about personal buisness"
                     P "Let's go somewhere with useful evidence"
 
-            #affaire mit jemanden wird angekündigt 
+        "Leave":
+            jump murderer_room
+
     jump inspect_murderer_room
 
 
