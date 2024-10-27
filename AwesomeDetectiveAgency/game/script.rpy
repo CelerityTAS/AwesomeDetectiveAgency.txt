@@ -757,7 +757,7 @@ label butler_accusation_final_missing:
     jump butler_accusation_conclusion   
 
 label butler_accusation_conclusion:
-    if butler_accusation_score > 10:
+    if butler_accusation_score > 7:
         B "Fine, it was me, I was the one who killed the old miss"
         B "But it was an accident I swear"
         B "She just woke up, when I was fleeing with the vase"
