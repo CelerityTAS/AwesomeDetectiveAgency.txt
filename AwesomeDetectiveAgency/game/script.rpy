@@ -331,11 +331,15 @@ label murderer_room:
                 jump place_select
     
 label inspect_murderer_room:
+    #fenster inspecten 
+    #calendar angeguckt oder aufgehoben
+    #kann dann zum back alley
+
     show bg murderroom
-    P "I am inspecting the murder room!"
+
+    P "So this is where Lady Gold was murdered"
     menu: 
-        "So this is where Lady Gold was murdered"
-        "Inspect the vase":
+        "Inspect vase":
             if("Vase" in player_inventory):
                 P "The Vase seemed quite expensive, should I put it back? "
                 menu: 
@@ -353,12 +357,12 @@ label inspect_murderer_room:
                     "No":
                         P "It is quite heavy, perhaps I can come back later"
 
-        "Inspect the vase fragments" if ( not "Vase fragments" in player_inventory):
+        "Inspect vase fragments" if ( not "Vase fragments" in player_inventory):
             P "Hmmmm, the fragments. They might be useful later, might aswell pick them up"
             "Picked up the fragments"
             $ player_inventory ["Vase fragments"] = "Shattered remains of the once beautiful vase"
 
-        "Inspect the calendar" if (not "Calendar" in player_inventory):
+        "Inspect calendar" if (not "Calendar" in player_inventory):
             P "Found the calendar!"
             menu:
                 "Pick it up?"
@@ -368,7 +372,7 @@ label inspect_murderer_room:
                 "No":
                     P "Why would a calendar even be useful? I'm just wasting my time here"
           
-        "Inspect the letter" if (not "Note2" in player_inventory):
+        "Inspect letter" if (not "Note2" in player_inventory):
             P "Seems like I found some kind of letter, very intriguing"
             menu: 
                 "Pick the letter up?"
