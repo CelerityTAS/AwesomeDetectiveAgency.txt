@@ -11,18 +11,15 @@ define B = Character("Michael Dacoity")
 define P = Character("Caze Solver")
 define C = Character("Crow")
 
-<<<<<<< HEAD
 default talkedtocrow = False
-=======
-
->>>>>>> parent of abdea63 (Merge branch 'main' of https://github.com/CelerityTAS/AwesomeDetectiveAgency.txt)
 default foundcalendar = False
+default cantalk_to_crow = True
 default talked_to_butler = False
 default has_police_station=False
 default has_sirs_office=False
 default butler_accusation_score = 0
 
-default player_inventory = {'Business Card': "My Business Card"}
+default player_inventory = {'Business Card': "My Business Card", "Phone": "I figured ot the murder was on the 27.10. at 4:00 PM"}
 
 default knows_affair = False
 default talked_to_sir = False
@@ -51,15 +48,13 @@ label start:
     P "You have indeed, how may I be of assistance?"  
 
     "I am Michael Dacoity"
-    # show anon default
-    "I am "
     B "Your Grandma and I have been working at the Howards Estate for a few months now."
     # show anon scared
     B "Yesterday Lady Bennington, Sir Howards wife was murdered!"
     B "The Police seems to believe your grandma was the murderer"
     B "I cannot fathom sweet poor old Lily being a cold blooded murderer"
-    show anon
     B "Please visit me at the Estate, Please hurry, before your grandma is behind bars."
+    hide anon
     jump place_select
 
 label place_select:
@@ -74,7 +69,7 @@ label place_select:
 
 
 label Estate:
-    show bg foyer
+    show bg estate
     show detective normal at left
     show butler normal at right
     if (not talked_to_butler):
@@ -103,17 +98,131 @@ label BackAlley:
 
 
 label inspect_Estate:
+    hide butler
+    hide sirgold
     menu:
         "Where to inspect"
+        "Piano":
+            P "Just and old Piano"
+            P "It is open"
+            "Boop Boop Beep Beep PeeP"
+            P "It is very out of tune. Must be just an art piece. Or someone is seriously tone deaf."
+            if ("Note1" in player_inventory):
+                P "This is where that Note used to be"
+                menu:
+                    P "Should I put it back?"
+                    "Yes":
+                        $ player_inventory.pop("Note1")
+                    "No":
+                        jump inspect_Estate
+            else :
+                P "Oh there is a note in the sheet music."
+                menu:
+                    P "Should I take a look at it?"
+                    "Yes":
+                        $ player_inventory["Note1"]="An old note left by someone, it just has the date of the murder."
+                        P "Ok I got it"
+                    "No":
+                        jump inspect_Estate
+        "Paintings":
+            P "A few old Paintings are hung up here."
+            show detective wrong at left
+            P "WAIT IS THAT MY GRANDMA???"
+            show detective normal at left
+            P "I guess she was already extraordinarily strong!"
+            P "I guess the other one is from Lady Gold"
+            menu paintings:
+                "What Painting to look at further"
+                "Pie Thing":
+                    P "I never understood abstract art"
+                    P "Oh, this is just a pie chart of the company earnings"
+                    P "Why would you hang that up in your home"
+                    P "Wait does that say 'Money Laundering???'"
+                    jump paintings
+                "Sir":
+                    P "A fine gentleman"
+                    P "I wonder where he gets his suits"
+                    if ("Note3" in player_inventory):
+                        P "This is where that Note used to be"
+                        menu:
+                            P "Should I put it back?"
+                            "Put it Back":
+                                $ player_inventory.pop("Note3")
+                            "Keep it":
+                                jump paintings
+                    else:
+                        P "Oh there is a note hidden behind the painting"
+                        menu:
+                            "Take it!":
+                                $ player_inventory["Note3"]="An Old note left by someone, it just has 3 PM on it."
+                            "Leave it":
+                                jump paintings
+                    jump paintings
+                "Grandma":
+                    P "She is buff!"
+                    P "Almost makes me wanna believe she did it!"
+                    P "She could probably beat up a few Gangsters on her own if she wanted to!"
+                    P "That reminds me, that I never asked her, what she used to do before becoming a cleaning lady"
+                    P "I guess it must have paid well, I mean she has her own little fortune"
+                    P "She never really talkes about her past..."
+                    jump paintings
+                "Lady":
+                    P "seems to be the dead lady. "
+                    P "I will find whoever killed you!"
+                    jump paintings
+                "Enough of the Paintings!":
+                    jump inspect_Estate
+        "Under the Carpet":
+            P "I am very much not lifting this carpet!!"
         "Ok found everything":
             jump Estate
-    return
+    jump inspect_Estate
 
 label inspect_back_alley:
     menu:
         "Where to inspect"
-        "Down Left":
-            P "nothing here"
+        "That Poster":
+            P "Oh it is a pop culture reference!"
+            if (cantalk_to_crow):
+                C "I love that game"
+                P "same"
+                P "'some girl' was my favourite character"
+                C "I liked the conductor"
+                P "all conductors are better than penguins"
+            else:
+                P "Damn I want someone to talk to about this game"
+        "Trash Can":
+            P "Who has this much trash?"
+            P "I think I just saw a crow eating in here!"
+            if ("Note4" in player_inventory):
+                P "This is where I found that note"
+                menu:
+                    P "Should I put it back?"
+                    "Put it Back":
+                        $ player_inventory.pop("Note3")
+                        jump paintings
+                    "Keep it":
+                        jump paintings
+            else:   
+                P "Oh there is a note here"
+                menu:
+                    P "Should I take it?"
+                    "Take it":
+                        $ player_inventory["Note4"]="A note someone left here, it just says 'Theo' and has a heart on it. It could be from the Sir's wife?"
+                        jump inspect_back_alley
+                    "Leave it":
+                        jump inspect_back_alley
+        "Mural":
+            P "This reminds of a movie I watched as an adult"
+            P "It was called murder on the solar express or something"
+            P "I wonder if everyone is guilty."
+            P "Or maybe just the victim is guilty!"
+            P "Maybe she is still alive!"
+            if (cantalk_to_crow):
+                C "I don't think so"
+                P "What do you know??"
+                C "Crah!"
+            jump inspect_back_alley
         "Ok found everything":
             jump BackAlley
     jump inspect_back_alley
@@ -137,6 +246,7 @@ label talk_to_butler:
 label talking_to_crow:
     if (not talkedtocrow):
         $ talkedtocrow = True
+        $ cantalk_to_crow = True
         show crow normal at right:
             zoom 0.5
             yalign 0.64
@@ -177,6 +287,7 @@ label murderer_room:
     if (not talked_to_sir):
         B "This is the crime Scene"
         B "Oh and sir gold seems to want to talk to us"
+        hide butler
         jump talking_to_sir_gold
     else:
         menu:
@@ -204,8 +315,7 @@ label talking_to_sir_gold:
         "tell me about your butler":
             jump sir_gold_on_butler
         "leave":
-            jump murderer_room
->>>>>>> parent of abdea63 (Merge branch 'main' of https://github.com/CelerityTAS/AwesomeDetectiveAgency.txt)
+            jump place_select
 
 
 label sir_gold_on_butler:
