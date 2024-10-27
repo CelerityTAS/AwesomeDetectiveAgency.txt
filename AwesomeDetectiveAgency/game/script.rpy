@@ -35,7 +35,7 @@ label start:
     # Show a background. This uses a placeholder by default, but you can
     # add a file (named either "bg room.png" or "bg room.jpg") to the
     # images directory to show it.
-
+    
     scene bg agency
     play music "audio/intro.mp3" volume 0.5
   
@@ -46,9 +46,7 @@ label start:
     # Anruf des Butlers
     "Hello, is this the Caze Solver's Detective Agency?"
     
-
     P "You have indeed, how may I be of assistance?"  
-
     "I am Michael Dacoity"
     B "Your Grandma and I have been working at the Howards Estate for a few months now."
     # show anon scared
@@ -278,7 +276,7 @@ label talking_to_crow:
             zoom 0.5
             yalign 0.64
         C "Hello, who might you be?"
-        show detective normal at left: 
+        show detective normal at left with easeinleft: 
             zoom 0.5
             yalign 0.64
         P "I am searching for someone that might have murdered the Lady of the local Mansion"
@@ -309,6 +307,7 @@ label talking_to_crow:
 
 
 label murderer_room:
+    show bg murderroom
     if (not talked_to_sir):
         B "This is the crime Scene"
         B "Oh and sir gold seems to want to talk to us"
@@ -323,7 +322,63 @@ label murderer_room:
                 jump inspect_murderer_room
     
 label inspect_murderer_room:
-    P "I am inspecting the murderer room!"
+    show bg murderroom
+    P "I am inspecting the murder room!"
+    menu: 
+        "So this is where Lady Gold was murdered"
+        "Inspect the vase":
+            if("Vase" in player_inventory):
+                P "The Vase seemed quite expensive, should I put it back? "
+                menu: 
+                    "Yes":
+                        $ player_inventory.pop("Vase")
+                    "No":
+                        jump inspect_murderer_room
+            else:
+                P "It seems to be shattered, and there is a lot of blood on it, better take it as evidence"
+                menu:
+                    P "Should I pick it up?"
+                    "Yes":
+                        $ player_inventory["Vase"] = "The vase that was used as the murder weapon, blood seems to be the only thing on it"
+                        P "With this, I'm sure I'll find the perpetrator!"
+                    "No":
+                        P "It is quite heavy, perhaps I can come back later"
+
+        "Inspect the vase fragments" if ( not "Vase fragments" in player_inventory):
+            P "Hmmmm, the fragments. They might be useful later, might aswell pick them up"
+            "Picked up the fragments"
+            $ player_inventory ["Vase fragments"] = "Shattered remains of the once beautiful vase"
+
+        #yes or no
+        "Inspect the calendar" if (not "Calendar" in player_inventory):
+            P "Found the calendar!"
+            menu:
+                "Pick it up?"
+                "Yes":
+                    $ player_inventory ["Calendar"] = "27.10 comes across as being a special day for Sir Gold, as it is marked with a heart"
+                    P "The 27th is marked as a special date, maybe I can ask around"
+                "No":
+                    P "Why would a calendar even be useful? I'm just wasting my time here"
+        #yes or no  
+        "Inspect the letter" if (not "Note2" in player_inventory):
+            P "Seems like I found some kind of letter, very intriguing"
+            menu: 
+                "Pick the letter up?"
+                "Yes":
+                    $ player_inventory ["Note2"] = "Sir Gold wants to meet someone"
+                    P "Perhaps this letter may be useful"
+                "No":
+                    P "I don't care about personal buisness"
+                    P "Let's go somewhere with useful evidence"
+
+            #affaire mit jemanden wird angekündigt 
+    jump inspect_murderer_room
+
+
+#scherben vase 
+#vase selbst blutiger handabdruck
+#calendar datum 27.10
+
 
 label talking_to_sir_gold:
     hide crow
@@ -346,9 +401,8 @@ label talking_to_sir_gold:
         "tell me about your butler":
             jump sir_gold_on_butler
         "leave":
-            jump place_select
-
-
+            jump murderer_room
+            
 label sir_gold_on_butler:
     M "He is a good Butler, we have had him in our services for about 2 months now"
     P "Hmm ok"
