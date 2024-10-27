@@ -13,12 +13,13 @@ define C = Character("Crow")
 
 default talkedtocrow = False
 default foundcalendar = False
+default cantalk_to_crow = True
 default talked_to_butler = False
 default has_police_station=False
 default has_sirs_office=False
 default butler_accusation_score = 0
 
-default player_inventory = {'Business Card': "My Business Card"}
+default player_inventory = {'Business Card': "My Business Card", "Phone": "I figured ot the murder was on the 27.10. at 4:00 PM"}
 
 default knows_affair = False
 default talked_to_sir = False
@@ -180,8 +181,48 @@ label inspect_Estate:
 label inspect_back_alley:
     menu:
         "Where to inspect"
-        "Down Left":
-            P "nothing here"
+        "That Poster":
+            P "Oh it is a pop culture reference!"
+            if (cantalk_to_crow):
+                C "I love that game"
+                P "same"
+                P "'some girl' was my favourite character"
+                C "I liked the conductor"
+                P "all conductors are better than penguins"
+            else:
+                P "Damn I want someone to talk to about this game"
+        "Trash Can":
+            P "Who has this much trash?"
+            P "I think I just saw a crow eating in here!"
+            if ("Note4" in player_inventory):
+                P "This is where I found that note"
+                menu:
+                    P "Should I put it back?"
+                    "Put it Back":
+                        $ player_inventory.pop("Note3")
+                        jump paintings
+                    "Keep it":
+                        jump paintings
+            else:   
+                P "Oh there is a note here"
+                menu:
+                    P "Should I take it?"
+                    "Take it":
+                        $ player_inventory["Note4"]="A note someone left here, it just says 'Theo' and has a heart on it. It could be from the Sir's wife?"
+                        jump inspect_back_alley
+                    "Leave it":
+                        jump inspect_back_alley
+        "Mural":
+            P "This reminds of a movie I watched as an adult"
+            P "It was called murder on the solar express or something"
+            P "I wonder if everyone is guilty."
+            P "Or maybe just the victim is guilty!"
+            P "Maybe she is still alive!"
+            if (cantalk_to_crow):
+                C "I don't think so"
+                P "What do you know??"
+                C "Crah!"
+            jump inspect_back_alley
         "Ok found everything":
             jump BackAlley
     jump inspect_back_alley
@@ -205,6 +246,7 @@ label talk_to_butler:
 label talking_to_crow:
     if (not talkedtocrow):
         $ talkedtocrow = True
+        $ cantalk_to_crow = True
         show crow normal at right:
             zoom 0.5
             yalign 0.64

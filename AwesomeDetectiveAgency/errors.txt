@@ -2,9 +2,9 @@
 errors listed below, and try again.
 
 
-File "game/script.rpy", line 225: expected statement.
-    >>>>>>> parent of abdea63 (Merge branch 'main' of https://github.com/CelerityTAS/AwesomeDetectiveAgency.txt)
-                              ^
+File "game/script.rpy", line 16: expected '=' not found.
+    default cantalk_to_crow
+                           ^
 
 Ren'Py Version: Ren'Py 8.3.2.24090902
-Sun Oct 27 12:20:12 2024
+Sun Oct 27 13:13:17 2024

@@ -1,18 +1,18 @@
-2024-10-27 11:22:50 UTC
+2024-10-27 11:59:57 UTC
 Windows-10-10.0.22631
 Ren'Py 8.3.2.24090902
 
-Early init took 0.06s
-Loading error handling took 0.03s
+Early init took 0.11s
+Loading error handling took 0.05s
 Loading script took 0.25s
-Loading save slot metadata took 0.03s
+Loading save slot metadata took 0.05s
 Loading persistent took 0.00s
-Running init code took 0.08s
-Loading analysis data took 0.02s
-Analyze and compile ATL took 0.00s
-Reloading save slot metadata took 0.02s
+Running init code took 0.07s
+Loading analysis data took 0.01s
+Analyze and compile ATL took 0.02s
+Reloading save slot metadata took 0.03s
 Index archives took 0.00s
-Dump and make backups took 0.07s
+Dump and make backups took 0.06s
 Cleaning cache took 0.00s
 Making clean stores took 0.00s
 Initial gc took 0.03s
@@ -21,202 +21,16 @@ nvdrs: Loaded, about to disable thread optimizations.
 nvdrs: b"Couldn't load nvlib." (can be ignored)
 Creating interface object took 0.02s
 Cleaning stores took 0.00s
-Init translation took 0.03s
+Init translation took 0.05s
 Build styles took 0.00s
 Load screen analysis took 0.03s
 Analyze screens took 0.00s
 Save screen analysis took 0.00s
 Prepare screens took 0.06s
 Save pyanalysis. took 0.00s
-Save bytecode. took 0.02s
-Running _start took 0.00s
-Interface start took 0.39s
-
-Initializing gl2 renderer:
-primary display bounds: (0, 0, 1920, 1080)
-swap interval: 1 frames
-Windowed mode.
-Vendor: "b'Intel'"
-Renderer: b'Intel(R) Iris(R) Xe Graphics'
-Version: b'4.6.0 - Build 30.0.101.1692'
-Display Info: None
-Screen sizes: virtual=(1920, 1080) physical=(1731, 974) drawable=(1731, 974)
-Maximum texture size: 4096x4096
-
-Full traceback:
-  File "game/script.rpy", line 107, in script
-    if (player_inventory["Note1"]=="An old note left by someone, it just has the date of the murder."):
-  File "C:\Users\loewe\OneDrive\Dokumente\Renpy\renpy-8.3.2-sdk\renpy\ast.py", line 1843, in execute
-    if renpy.python.py_eval(condition):
-  File "C:\Users\loewe\OneDrive\Dokumente\Renpy\renpy-8.3.2-sdk\renpy\python.py", line 1209, in py_eval
-    return py_eval_bytecode(code, globals, locals)
-  File "C:\Users\loewe\OneDrive\Dokumente\Renpy\renpy-8.3.2-sdk\renpy\python.py", line 1202, in py_eval_bytecode
-    return eval(bytecode, globals, locals)
-  File "game/script.rpy", line 107, in <module>
-    if (player_inventory["Note1"]=="An old note left by someone, it just has the date of the murder."):
-KeyError: 'Note1'
-
-While running game code:
-  File "game/script.rpy", line 107, in script
-    if (player_inventory["Note1"]=="An old note left by someone, it just has the date of the murder."):
-  File "game/script.rpy", line 107, in <module>
-    if (player_inventory["Note1"]=="An old note left by someone, it just has the date of the murder."):
-KeyError: 'Note1'
-Resetting cache.
-Early init took 83.93s
-Loading error handling took 0.06s
-Loading script took 0.45s
-Loading save slot metadata took 0.03s
-Loading persistent took 0.00s
-Running init code took 0.04s
-Loading analysis data took 0.02s
-Analyze and compile ATL took 0.00s
-Reloading save slot metadata took 0.04s
-Index archives took 0.00s
-Backing up script files to 'C:\\Users\\loewe\\AppData\\Roaming/RenPy/backups\\AwesomeDetectiveAgency':
-Dump and make backups took 0.07s
-Cleaning cache took 0.00s
-Making clean stores took 0.00s
-Initial gc took 0.06s
-DPI scale factor: 1.500000
-nvdrs: Loaded, about to disable thread optimizations.
-nvdrs: b"Couldn't load nvlib." (can be ignored)
-Creating interface object took 0.00s
-Cleaning stores took 0.00s
-Init translation took 0.04s
-Build styles took 0.00s
-Load screen analysis took 0.00s
-Analyze screens took 0.01s
-Save screen analysis took 0.03s
-Prepare screens took 0.06s
-Save pyanalysis. took 0.00s
-Save bytecode. took 0.02s
-Running _start took 0.00s
-Interface start took 0.20s
-
-Initializing gl2 renderer:
-primary display bounds: (0, 0, 1920, 1080)
-swap interval: 1 frames
-Windowed mode.
-Vendor: "b'Intel'"
-Renderer: b'Intel(R) Iris(R) Xe Graphics'
-Version: b'4.6.0 - Build 30.0.101.1692'
-Display Info: None
-Screen sizes: virtual=(1920, 1080) physical=(1731, 974) drawable=(1731, 974)
-Maximum texture size: 4096x4096
-
-Full traceback:
-  File "game/script.rpy", line 107, in script
-    if (player_inventory.has("Note1")):
-  File "C:\Users\loewe\OneDrive\Dokumente\Renpy\renpy-8.3.2-sdk\renpy\ast.py", line 1843, in execute
-    if renpy.python.py_eval(condition):
-  File "C:\Users\loewe\OneDrive\Dokumente\Renpy\renpy-8.3.2-sdk\renpy\python.py", line 1209, in py_eval
-    return py_eval_bytecode(code, globals, locals)
-  File "C:\Users\loewe\OneDrive\Dokumente\Renpy\renpy-8.3.2-sdk\renpy\python.py", line 1202, in py_eval_bytecode
-    return eval(bytecode, globals, locals)
-  File "game/script.rpy", line 107, in <module>
-    if (player_inventory.has("Note1")):
-AttributeError: 'RevertableDict' object has no attribute 'has'
-
-While running game code:
-  File "game/script.rpy", line 107, in script
-    if (player_inventory.has("Note1")):
-  File "game/script.rpy", line 107, in <module>
-    if (player_inventory.has("Note1")):
-AttributeError: 'RevertableDict' object has no attribute 'has'
-Resetting cache.
-Early init took 96.00s
-Loading error handling took 0.03s
-Loading script took 0.21s
-Loading save slot metadata took 0.03s
-Loading persistent took 0.00s
-Running init code took 0.05s
-Loading analysis data took 0.02s
-Analyze and compile ATL took 0.00s
-Reloading save slot metadata took 0.04s
-Index archives took 0.00s
-Backing up script files to 'C:\\Users\\loewe\\AppData\\Roaming/RenPy/backups\\AwesomeDetectiveAgency':
-Dump and make backups took 0.07s
-Cleaning cache took 0.00s
-Making clean stores took 0.00s
-Initial gc took 0.06s
-DPI scale factor: 1.500000
-nvdrs: Loaded, about to disable thread optimizations.
-nvdrs: b"Couldn't load nvlib." (can be ignored)
-Creating interface object took 0.00s
-Cleaning stores took 0.00s
-Init translation took 0.04s
-Build styles took 0.00s
-Load screen analysis took 0.00s
-Analyze screens took 0.01s
-Save screen analysis took 0.02s
-Prepare screens took 0.07s
-Save pyanalysis. took 0.00s
-Save bytecode. took 0.02s
-Running _start took 0.00s
-Interface start took 0.17s
-
-Initializing gl2 renderer:
-primary display bounds: (0, 0, 1920, 1080)
-swap interval: 1 frames
-Windowed mode.
-Vendor: "b'Intel'"
-Renderer: b'Intel(R) Iris(R) Xe Graphics'
-Version: b'4.6.0 - Build 30.0.101.1692'
-Display Info: None
-Screen sizes: virtual=(1920, 1080) physical=(1731, 974) drawable=(1731, 974)
-Maximum texture size: 4096x4096
-
-Full traceback:
-  File "game/script.rpy", line 107, in script
-    if (player_inventory.keys().has("Note1")):
-  File "C:\Users\loewe\OneDrive\Dokumente\Renpy\renpy-8.3.2-sdk\renpy\ast.py", line 1843, in execute
-    if renpy.python.py_eval(condition):
-  File "C:\Users\loewe\OneDrive\Dokumente\Renpy\renpy-8.3.2-sdk\renpy\python.py", line 1209, in py_eval
-    return py_eval_bytecode(code, globals, locals)
-  File "C:\Users\loewe\OneDrive\Dokumente\Renpy\renpy-8.3.2-sdk\renpy\python.py", line 1202, in py_eval_bytecode
-    return eval(bytecode, globals, locals)
-  File "game/script.rpy", line 107, in <module>
-    if (player_inventory.keys().has("Note1")):
-AttributeError: 'dict_keys' object has no attribute 'has'
-
-While running game code:
-  File "game/script.rpy", line 107, in script
-    if (player_inventory.keys().has("Note1")):
-  File "game/script.rpy", line 107, in <module>
-    if (player_inventory.keys().has("Note1")):
-AttributeError: 'dict_keys' object has no attribute 'has'
-Resetting cache.
-Early init took 214.80s
-Loading error handling took 0.04s
-Loading script took 0.49s
-Loading save slot metadata took 0.05s
-Loading persistent took 0.00s
-Running init code took 0.07s
-Loading analysis data took 0.02s
-Analyze and compile ATL took 0.00s
-Reloading save slot metadata took 0.04s
-Index archives took 0.00s
-Backing up script files to 'C:\\Users\\loewe\\AppData\\Roaming/RenPy/backups\\AwesomeDetectiveAgency':
-Dump and make backups took 0.06s
-Cleaning cache took 0.00s
-Making clean stores took 0.00s
-Initial gc took 0.07s
-DPI scale factor: 1.500000
-nvdrs: Loaded, about to disable thread optimizations.
-nvdrs: b"Couldn't load nvlib." (can be ignored)
-Creating interface object took 0.00s
-Cleaning stores took 0.00s
-Init translation took 0.04s
-Build styles took 0.00s
-Load screen analysis took 0.00s
-Analyze screens took 0.01s
-Save screen analysis took 0.03s
-Prepare screens took 0.09s
-Save pyanalysis. took 0.00s
 Save bytecode. took 0.03s
 Running _start took 0.00s
-Interface start took 0.20s
+Interface start took 0.38s
 
 Initializing gl2 renderer:
 primary display bounds: (0, 0, 1920, 1080)
@@ -228,117 +42,37 @@ Version: b'4.6.0 - Build 30.0.101.1692'
 Display Info: None
 Screen sizes: virtual=(1920, 1080) physical=(1731, 974) drawable=(1731, 974)
 Maximum texture size: 4096x4096
-
-Full traceback:
-  File "game/script.rpy", line 107, in script
-    if (player_inventory.keys().count("Note1")>0):
-  File "C:\Users\loewe\OneDrive\Dokumente\Renpy\renpy-8.3.2-sdk\renpy\ast.py", line 1843, in execute
-    if renpy.python.py_eval(condition):
-  File "C:\Users\loewe\OneDrive\Dokumente\Renpy\renpy-8.3.2-sdk\renpy\python.py", line 1209, in py_eval
-    return py_eval_bytecode(code, globals, locals)
-  File "C:\Users\loewe\OneDrive\Dokumente\Renpy\renpy-8.3.2-sdk\renpy\python.py", line 1202, in py_eval_bytecode
-    return eval(bytecode, globals, locals)
-  File "game/script.rpy", line 107, in <module>
-    if (player_inventory.keys().count("Note1")>0):
-AttributeError: 'dict_keys' object has no attribute 'count'
-
-While running game code:
-  File "game/script.rpy", line 107, in script
-    if (player_inventory.keys().count("Note1")>0):
-  File "game/script.rpy", line 107, in <module>
-    if (player_inventory.keys().count("Note1")>0):
-AttributeError: 'dict_keys' object has no attribute 'count'
 Resetting cache.
-Early init took 291.13s
-Loading error handling took 0.02s
-Loading script took 0.20s
+Early init took 511.31s
+Loading error handling took 0.04s
+Loading script took 0.24s
 Loading save slot metadata took 0.04s
 Loading persistent took 0.00s
-Running init code took 0.06s
-Loading analysis data took 0.02s
-Analyze and compile ATL took 0.00s
-Reloading save slot metadata took 0.04s
-Index archives took 0.00s
-Backing up script files to 'C:\\Users\\loewe\\AppData\\Roaming/RenPy/backups\\AwesomeDetectiveAgency':
-Dump and make backups took 0.06s
-Cleaning cache took 0.00s
-Making clean stores took 0.00s
-Initial gc took 0.06s
-DPI scale factor: 1.500000
-nvdrs: Loaded, about to disable thread optimizations.
-nvdrs: b"Couldn't load nvlib." (can be ignored)
-Creating interface object took 0.00s
-Cleaning stores took 0.00s
-Init translation took 0.06s
-Build styles took 0.00s
-Load screen analysis took 0.00s
-Analyze screens took 0.01s
-Save screen analysis took 0.02s
-Prepare screens took 0.08s
-Save pyanalysis. took 0.00s
-Save bytecode. took 0.02s
-Running _start took 0.00s
-Interface start took 0.19s
-
-Initializing gl2 renderer:
-primary display bounds: (0, 0, 1920, 1080)
-swap interval: 1 frames
-Windowed mode.
-Vendor: "b'Intel'"
-Renderer: b'Intel(R) Iris(R) Xe Graphics'
-Version: b'4.6.0 - Build 30.0.101.1692'
-Display Info: None
-Screen sizes: virtual=(1920, 1080) physical=(1731, 974) drawable=(1731, 974)
-Maximum texture size: 4096x4096
-
-Full traceback:
-  File "game/script.rpy", line 112, in script
-    $ player_inventory.remove("Note1")
-  File "C:\Users\loewe\OneDrive\Dokumente\Renpy\renpy-8.3.2-sdk\renpy\ast.py", line 821, in execute
-    renpy.python.py_exec_bytecode(self.code.bytecode, self.hide, store=self.store)
-  File "C:\Users\loewe\OneDrive\Dokumente\Renpy\renpy-8.3.2-sdk\renpy\python.py", line 1178, in py_exec_bytecode
-    exec(bytecode, globals, locals)
-  File "game/script.rpy", line 112, in <module>
-    $ player_inventory.remove("Note1")
-AttributeError: 'RevertableDict' object has no attribute 'remove'
-
-While running game code:
-  File "game/script.rpy", line 112, in script
-    $ player_inventory.remove("Note1")
-  File "game/script.rpy", line 112, in <module>
-    $ player_inventory.remove("Note1")
-AttributeError: 'RevertableDict' object has no attribute 'remove'
-Resetting cache.
-Early init took 345.30s
-Loading error handling took 0.03s
-Loading script took 0.39s
-Loading save slot metadata took 0.05s
-Loading persistent took 0.00s
 Running init code took 0.04s
-Loading analysis data took 0.02s
+Loading analysis data took 0.01s
 Analyze and compile ATL took 0.00s
-Reloading save slot metadata took 0.06s
+Reloading save slot metadata took 0.03s
 Index archives took 0.00s
 Backing up script files to 'C:\\Users\\loewe\\AppData\\Roaming/RenPy/backups\\AwesomeDetectiveAgency':
 Dump and make backups took 0.05s
 Cleaning cache took 0.00s
 Making clean stores took 0.00s
-Initial gc took 0.07s
+Initial gc took 0.05s
 DPI scale factor: 1.500000
 nvdrs: Loaded, about to disable thread optimizations.
 nvdrs: b"Couldn't load nvlib." (can be ignored)
 Creating interface object took 0.00s
 Cleaning stores took 0.00s
-Init translation took 0.04s
+Init translation took 0.03s
 Build styles took 0.00s
 Load screen analysis took 0.00s
-Analyze screens took 0.02s
+Analyze screens took 0.01s
 Save screen analysis took 0.02s
-Prepare screens took 0.07s
-Save pyanalysis. took 0.00s
+Prepare screens took 0.06s
+Save pyanalysis. took 0.01s
 Save bytecode. took 0.02s
 Running _start took 0.00s
-Interface start took 0.18s
+Interface start took 0.16s
 
 Initializing gl2 renderer:
 primary display bounds: (0, 0, 1920, 1080)
@@ -351,32 +85,116 @@ Display Info: None
 Screen sizes: virtual=(1920, 1080) physical=(1731, 974) drawable=(1731, 974)
 Maximum texture size: 4096x4096
 Resetting cache.
-Early init took 413.77s
+Early init took 563.13s
 Loading error handling took 0.02s
-Loading script took 0.21s
+Loading script took 0.23s
 Loading save slot metadata took 0.03s
 Loading persistent took 0.00s
-Running init code took 0.04s
-Loading analysis data took 0.02s
+Running init code took 0.03s
+Loading analysis data took 0.01s
 Analyze and compile ATL took 0.00s
 Reloading save slot metadata took 0.03s
 Index archives took 0.00s
 Backing up script files to 'C:\\Users\\loewe\\AppData\\Roaming/RenPy/backups\\AwesomeDetectiveAgency':
-Dump and make backups took 0.06s
+Dump and make backups took 0.04s
 Cleaning cache took 0.00s
 Making clean stores took 0.00s
-Initial gc took 0.07s
+Initial gc took 0.05s
 DPI scale factor: 1.500000
 nvdrs: Loaded, about to disable thread optimizations.
 nvdrs: b"Couldn't load nvlib." (can be ignored)
 Creating interface object took 0.00s
 Cleaning stores took 0.00s
-Init translation took 0.05s
+Init translation took 0.04s
 Build styles took 0.00s
 Load screen analysis took 0.00s
 Analyze screens took 0.01s
 Save screen analysis took 0.02s
 Prepare screens took 0.07s
+Save pyanalysis. took 0.01s
+Save bytecode. took 0.02s
+Running _start took 0.00s
+Interface start took 0.16s
+
+Initializing gl2 renderer:
+primary display bounds: (0, 0, 1920, 1080)
+swap interval: 1 frames
+Windowed mode.
+Vendor: "b'Intel'"
+Renderer: b'Intel(R) Iris(R) Xe Graphics'
+Version: b'4.6.0 - Build 30.0.101.1692'
+Display Info: None
+Screen sizes: virtual=(1920, 1080) physical=(1731, 974) drawable=(1731, 974)
+Maximum texture size: 4096x4096
+Resetting cache.
+Early init took 601.36s
+Loading error handling took 0.02s
+Loading script took 0.16s
+Loading save slot metadata took 0.02s
+Loading persistent took 0.00s
+Running init code took 0.03s
+Loading analysis data took 0.01s
+Analyze and compile ATL took 0.00s
+Reloading save slot metadata took 0.02s
+Index archives took 0.00s
+Backing up script files to 'C:\\Users\\loewe\\AppData\\Roaming/RenPy/backups\\AwesomeDetectiveAgency':
+Dump and make backups took 0.05s
+Cleaning cache took 0.00s
+Making clean stores took 0.00s
+Initial gc took 0.04s
+DPI scale factor: 1.500000
+nvdrs: Loaded, about to disable thread optimizations.
+nvdrs: b"Couldn't load nvlib." (can be ignored)
+Creating interface object took 0.00s
+Cleaning stores took 0.00s
+Init translation took 0.03s
+Build styles took 0.00s
+Load screen analysis took 0.00s
+Analyze screens took 0.01s
+Save screen analysis took 0.02s
+Prepare screens took 0.06s
+Save pyanalysis. took 0.01s
+Save bytecode. took 0.02s
+Running _start took 0.00s
+Interface start took 0.16s
+
+Initializing gl2 renderer:
+primary display bounds: (0, 0, 1920, 1080)
+swap interval: 1 frames
+Windowed mode.
+Vendor: "b'Intel'"
+Renderer: b'Intel(R) Iris(R) Xe Graphics'
+Version: b'4.6.0 - Build 30.0.101.1692'
+Display Info: None
+Screen sizes: virtual=(1920, 1080) physical=(1731, 974) drawable=(1731, 974)
+Maximum texture size: 4096x4096
+Resetting cache.
+Early init took 630.44s
+Loading error handling took 0.02s
+Loading script took 0.17s
+Loading save slot metadata took 0.03s
+Loading persistent took 0.00s
+Running init code took 0.03s
+Loading analysis data took 0.01s
+Analyze and compile ATL took 0.00s
+Reloading save slot metadata took 0.02s
+Index archives took 0.00s
+Backing up script files to 'C:\\Users\\loewe\\AppData\\Roaming/RenPy/backups\\AwesomeDetectiveAgency':
+Dump and make backups took 0.04s
+Cleaning cache took 0.00s
+Making clean stores took 0.00s
+Initial gc took 0.04s
+DPI scale factor: 1.500000
+nvdrs: Loaded, about to disable thread optimizations.
+nvdrs: b"Couldn't load nvlib." (can be ignored)
+Creating interface object took 0.00s
+Cleaning stores took 0.00s
+Init translation took 0.03s
+Build styles took 0.00s
+Load screen analysis took 0.00s
+Analyze screens took 0.01s
+Save screen analysis took 0.02s
+Prepare screens took 0.06s
 Save pyanalysis. took 0.02s
 Save bytecode. took 0.02s
 Running _start took 0.00s
@@ -393,21 +211,104 @@ Display Info: None
 Screen sizes: virtual=(1920, 1080) physical=(1731, 974) drawable=(1731, 974)
 Maximum texture size: 4096x4096
 Resetting cache.
-Early init took 435.70s
+Early init took 633.80s
 Loading error handling took 0.03s
-Loading script took 0.22s
-Loading save slot metadata took 0.03s
+Loading script took 0.11s
+Loading save slot metadata took 0.02s
 Loading persistent took 0.00s
-Running init code took 0.04s
+Running init code took 0.03s
+Loading analysis data took 0.01s
+Analyze and compile ATL took 0.00s
+Reloading save slot metadata took 0.02s
+Index archives took 0.00s
+Dump and make backups took 0.04s
+Cleaning cache took 0.00s
+Making clean stores took 0.00s
+Initial gc took 0.04s
+DPI scale factor: 1.500000
+nvdrs: Loaded, about to disable thread optimizations.
+nvdrs: b"Couldn't load nvlib." (can be ignored)
+Creating interface object took 0.00s
+Cleaning stores took 0.00s
+Init translation took 0.04s
+Build styles took 0.00s
+Load screen analysis took 0.02s
+Analyze screens took 0.00s
+Save screen analysis took 0.00s
+Prepare screens took 0.10s
+Save pyanalysis. took 0.00s
+Save bytecode. took 0.00s
+Running _start took 0.00s
+Interface start took 0.15s
+
+Initializing gl2 renderer:
+primary display bounds: (0, 0, 1920, 1080)
+swap interval: 1 frames
+Windowed mode.
+Vendor: "b'Intel'"
+Renderer: b'Intel(R) Iris(R) Xe Graphics'
+Version: b'4.6.0 - Build 30.0.101.1692'
+Display Info: None
+Screen sizes: virtual=(1920, 1080) physical=(1731, 974) drawable=(1731, 974)
+Maximum texture size: 4096x4096
+Resetting cache.
+Early init took 658.28s
+Loading error handling took 0.02s
+Loading script took 0.18s
+Loading save slot metadata took 0.02s
+Loading persistent took 0.00s
+Running init code took 0.03s
 Loading analysis data took 0.02s
 Analyze and compile ATL took 0.00s
 Reloading save slot metadata took 0.02s
 Index archives took 0.00s
 Backing up script files to 'C:\\Users\\loewe\\AppData\\Roaming/RenPy/backups\\AwesomeDetectiveAgency':
-Dump and make backups took 0.07s
+Dump and make backups took 0.05s
 Cleaning cache took 0.00s
 Making clean stores took 0.00s
-Initial gc took 0.06s
+Initial gc took 0.05s
+DPI scale factor: 1.500000
+nvdrs: Loaded, about to disable thread optimizations.
+nvdrs: b"Couldn't load nvlib." (can be ignored)
+Creating interface object took 0.00s
+Cleaning stores took 0.00s
+Init translation took 0.04s
+Build styles took 0.00s
+Load screen analysis took 0.00s
+Analyze screens took 0.01s
+Save screen analysis took 0.02s
+Prepare screens took 0.06s
+Save pyanalysis. took 0.00s
+Save bytecode. took 0.02s
+Running _start took 0.00s
+Interface start took 0.16s
+
+Initializing gl2 renderer:
+primary display bounds: (0, 0, 1920, 1080)
+swap interval: 1 frames
+Windowed mode.
+Vendor: "b'Intel'"
+Renderer: b'Intel(R) Iris(R) Xe Graphics'
+Version: b'4.6.0 - Build 30.0.101.1692'
+Display Info: None
+Screen sizes: virtual=(1920, 1080) physical=(1731, 974) drawable=(1731, 974)
+Maximum texture size: 4096x4096
+Resetting cache.
+Early init took 675.30s
+Loading error handling took 0.03s
+Loading script took 0.17s
+Loading save slot metadata took 0.03s
+Loading persistent took 0.00s
+Running init code took 0.03s
+Loading analysis data took 0.01s
+Analyze and compile ATL took 0.00s
+Reloading save slot metadata took 0.02s
+Index archives took 0.00s
+Backing up script files to 'C:\\Users\\loewe\\AppData\\Roaming/RenPy/backups\\AwesomeDetectiveAgency':
+Dump and make backups took 0.04s
+Cleaning cache took 0.00s
+Making clean stores took 0.00s
+Initial gc took 0.05s
 DPI scale factor: 1.500000
 nvdrs: Loaded, about to disable thread optimizations.
 nvdrs: b"Couldn't load nvlib." (can be ignored)
@@ -422,7 +323,7 @@ Prepare screens took 0.07s
 Save pyanalysis. took 0.00s
 Save bytecode. took 0.02s
 Running _start took 0.00s
-Interface start took 0.20s
+Interface start took 0.16s
 
 Initializing gl2 renderer:
 primary display bounds: (0, 0, 1920, 1080)
@@ -434,161 +335,22 @@ Version: b'4.6.0 - Build 30.0.101.1692'
 Display Info: None
 Screen sizes: virtual=(1920, 1080) physical=(1731, 974) drawable=(1731, 974)
 Maximum texture size: 4096x4096
-Cleaning stores took 0.00s
-Init translation took 0.00s
-Build styles took 0.01s
-Load screen analysis took 0.04s
-Analyze screens took 0.00s
-Prepare screens took 0.00s
-Running _start took 0.00s
 Resetting cache.
-Early init took 490.18s
-Loading error handling took 0.03s
-Loading script took 0.28s
-Loading save slot metadata took 0.04s
+Early init took 725.69s
+Loading error handling took 0.02s
+Loading script took 0.19s
+Loading save slot metadata took 0.03s
 Loading persistent took 0.00s
-Running init code took 0.05s
+Running init code took 0.03s
 Loading analysis data took 0.02s
 Analyze and compile ATL took 0.00s
-Reloading save slot metadata took 0.05s
+Reloading save slot metadata took 0.02s
 Index archives took 0.00s
 Backing up script files to 'C:\\Users\\loewe\\AppData\\Roaming/RenPy/backups\\AwesomeDetectiveAgency':
-Dump and make backups took 0.07s
-Cleaning cache took 0.00s
-Making clean stores took 0.00s
-Initial gc took 0.09s
-DPI scale factor: 1.500000
-nvdrs: Loaded, about to disable thread optimizations.
-nvdrs: b"Couldn't load nvlib." (can be ignored)
-Creating interface object took 0.00s
-Cleaning stores took 0.00s
-Init translation took 0.04s
-Build styles took 0.00s
-Load screen analysis took 0.00s
-Analyze screens took 0.01s
-Save screen analysis took 0.02s
-Prepare screens took 0.10s
-Save pyanalysis. took 0.00s
-Save bytecode. took 0.02s
-Running _start took 0.00s
-Interface start took 0.19s
-
-Initializing gl2 renderer:
-primary display bounds: (0, 0, 1920, 1080)
-swap interval: 1 frames
-Windowed mode.
-Vendor: "b'Intel'"
-Renderer: b'Intel(R) Iris(R) Xe Graphics'
-Version: b'4.6.0 - Build 30.0.101.1692'
-Display Info: None
-Screen sizes: virtual=(1920, 1080) physical=(1731, 974) drawable=(1731, 974)
-Maximum texture size: 4096x4096
-Resetting cache.
-Early init took 495.30s
-Loading error handling took 0.02s
-Loading script took 0.16s
-Loading save slot metadata took 0.05s
-Loading persistent took 0.00s
-Running init code took 0.08s
-Loading analysis data took 0.02s
-Analyze and compile ATL took 0.00s
-Reloading save slot metadata took 0.03s
-Index archives took 0.00s
-Dump and make backups took 0.07s
+Dump and make backups took 0.05s
 Cleaning cache took 0.00s
 Making clean stores took 0.00s
 Initial gc took 0.06s
-DPI scale factor: 1.500000
-nvdrs: Loaded, about to disable thread optimizations.
-nvdrs: b"Couldn't load nvlib." (can be ignored)
-Creating interface object took 0.00s
-Cleaning stores took 0.00s
-Init translation took 0.04s
-Build styles took 0.00s
-Load screen analysis took 0.03s
-Analyze screens took 0.00s
-Save screen analysis took 0.00s
-Prepare screens took 0.07s
-Save pyanalysis. took 0.00s
-Save bytecode. took 0.00s
-Running _start took 0.00s
-Interface start took 0.18s
-
-Initializing gl2 renderer:
-primary display bounds: (0, 0, 1920, 1080)
-swap interval: 1 frames
-Windowed mode.
-Vendor: "b'Intel'"
-Renderer: b'Intel(R) Iris(R) Xe Graphics'
-Version: b'4.6.0 - Build 30.0.101.1692'
-Display Info: None
-Screen sizes: virtual=(1920, 1080) physical=(1731, 974) drawable=(1731, 974)
-Maximum texture size: 4096x4096
-Resetting cache.
-Early init took 500.57s
-Loading error handling took 0.02s
-Loading script took 0.31s
-Loading save slot metadata took 0.04s
-Loading persistent took 0.00s
-Running init code took 0.04s
-Loading analysis data took 0.02s
-Analyze and compile ATL took 0.00s
-Reloading save slot metadata took 0.03s
-Index archives took 0.00s
-Backing up script files to 'C:\\Users\\loewe\\AppData\\Roaming/RenPy/backups\\AwesomeDetectiveAgency':
-Dump and make backups took 0.10s
-Cleaning cache took 0.00s
-Making clean stores took 0.00s
-Initial gc took 0.08s
-DPI scale factor: 1.500000
-nvdrs: Loaded, about to disable thread optimizations.
-nvdrs: b"Couldn't load nvlib." (can be ignored)
-Creating interface object took 0.00s
-Cleaning stores took 0.00s
-Init translation took 0.04s
-Build styles took 0.00s
-Load screen analysis took 0.00s
-Analyze screens took 0.01s
-Save screen analysis took 0.03s
-Prepare screens took 0.09s
-Save pyanalysis. took 0.00s
-Save bytecode. took 0.02s
-Running _start took 0.00s
-Interface start took 0.19s
-
-Initializing gl2 renderer:
-primary display bounds: (0, 0, 1920, 1080)
-swap interval: 1 frames
-Windowed mode.
-Vendor: "b'Intel'"
-Renderer: b'Intel(R) Iris(R) Xe Graphics'
-Version: b'4.6.0 - Build 30.0.101.1692'
-Display Info: None
-Screen sizes: virtual=(1920, 1080) physical=(1731, 974) drawable=(1731, 974)
-Maximum texture size: 4096x4096
-Cleaning stores took 0.00s
-Init translation took 0.00s
-Build styles took 0.00s
-Load screen analysis took 0.03s
-Analyze screens took 0.00s
-Prepare screens took 0.00s
-Running _start took 0.00s
-Resetting cache.
-Early init took 1916.34s
-Loading error handling took 0.03s
-Loading script took 0.36s
-Loading save slot metadata took 0.04s
-Loading persistent took 0.00s
-Running init code took 0.05s
-Loading analysis data took 0.02s
-Analyze and compile ATL took 0.00s
-Reloading save slot metadata took 0.03s
-Index archives took 0.00s
-Backing up script files to 'C:\\Users\\loewe\\AppData\\Roaming/RenPy/backups\\AwesomeDetectiveAgency':
-Dump and make backups took 0.06s
-Cleaning cache took 0.00s
-Making clean stores took 0.00s
-Initial gc took 0.07s
 DPI scale factor: 1.500000
 nvdrs: Loaded, about to disable thread optimizations.
 nvdrs: b"Couldn't load nvlib." (can be ignored)
@@ -603,7 +365,7 @@ Prepare screens took 0.07s
 Save pyanalysis. took 0.02s
 Save bytecode. took 0.02s
 Running _start took 0.00s
-Interface start took 0.21s
+Interface start took 0.15s
 
 Initializing gl2 renderer:
 primary display bounds: (0, 0, 1920, 1080)
@@ -616,21 +378,254 @@ Display Info: None
 Screen sizes: virtual=(1920, 1080) physical=(1731, 974) drawable=(1731, 974)
 Maximum texture size: 4096x4096
 Resetting cache.
-Early init took 1980.70s
+Early init took 762.41s
 Loading error handling took 0.02s
-Loading script took 0.21s
+Loading script took 0.20s
 Loading save slot metadata took 0.03s
 Loading persistent took 0.00s
-Running init code took 0.04s
-Loading analysis data took 0.02s
+Running init code took 0.03s
+Loading analysis data took 0.01s
 Analyze and compile ATL took 0.00s
-Reloading save slot metadata took 0.03s
+Reloading save slot metadata took 0.02s
 Index archives took 0.00s
 Backing up script files to 'C:\\Users\\loewe\\AppData\\Roaming/RenPy/backups\\AwesomeDetectiveAgency':
-Dump and make backups took 0.06s
+Dump and make backups took 0.05s
 Cleaning cache took 0.00s
 Making clean stores took 0.00s
-Initial gc took 0.07s
+Initial gc took 0.04s
+DPI scale factor: 1.500000
+nvdrs: Loaded, about to disable thread optimizations.
+nvdrs: b"Couldn't load nvlib." (can be ignored)
+Creating interface object took 0.00s
+Cleaning stores took 0.00s
+Init translation took 0.03s
+Build styles took 0.00s
+Load screen analysis took 0.00s
+Analyze screens took 0.01s
+Save screen analysis took 0.02s
+Prepare screens took 0.06s
+Save pyanalysis. took 0.01s
+Save bytecode. took 0.02s
+Running _start took 0.00s
+Interface start took 0.15s
+
+Initializing gl2 renderer:
+primary display bounds: (0, 0, 1920, 1080)
+swap interval: 1 frames
+Windowed mode.
+Vendor: "b'Intel'"
+Renderer: b'Intel(R) Iris(R) Xe Graphics'
+Version: b'4.6.0 - Build 30.0.101.1692'
+Display Info: None
+Screen sizes: virtual=(1920, 1080) physical=(1731, 974) drawable=(1731, 974)
+Maximum texture size: 4096x4096
+Resetting cache.
+Early init took 800.57s
+Loading error handling took 0.02s
+Loading script took 0.19s
+Loading save slot metadata took 0.02s
+Loading persistent took 0.00s
+
+File "game/script.rpy", line 16: expected '=' not found.
+    default cantalk_to_crow
+                           ^
+DPI scale factor: 1.500000
+nvdrs: Loaded, about to disable thread optimizations.
+nvdrs: b"Couldn't load nvlib." (can be ignored)
+Interface start took 0.22s
+
+Initializing gl2 renderer:
+primary display bounds: (0, 0, 1920, 1080)
+swap interval: 1 frames
+Windowed mode.
+Vendor: "b'Intel'"
+Renderer: b'Intel(R) Iris(R) Xe Graphics'
+Version: b'4.6.0 - Build 30.0.101.1692'
+Display Info: None
+Screen sizes: virtual=(1920, 1080) physical=(1731, 974) drawable=(1731, 974)
+Maximum texture size: 4096x4096
+Resetting cache.
+Early init took 802.29s
+Loading error handling took 0.02s
+Loading script took 0.17s
+Loading save slot metadata took 0.02s
+Loading persistent took 0.00s
+Running init code took 0.04s
+Loading analysis data took 0.01s
+Analyze and compile ATL took 0.00s
+Reloading save slot metadata took 0.02s
+Index archives took 0.00s
+Backing up script files to 'C:\\Users\\loewe\\AppData\\Roaming/RenPy/backups\\AwesomeDetectiveAgency':
+Dump and make backups took 0.05s
+Cleaning cache took 0.00s
+Making clean stores took 0.00s
+Initial gc took 0.04s
+DPI scale factor: 1.500000
+nvdrs: Loaded, about to disable thread optimizations.
+nvdrs: b"Couldn't load nvlib." (can be ignored)
+Creating interface object took 0.00s
+Cleaning stores took 0.00s
+Init translation took 0.03s
+Build styles took 0.00s
+Load screen analysis took 0.00s
+Analyze screens took 0.01s
+Save screen analysis took 0.02s
+Prepare screens took 0.09s
+Save pyanalysis. took 0.02s
+Save bytecode. took 0.02s
+Running _start took 0.00s
+Interface start took 0.15s
+
+Initializing gl2 renderer:
+primary display bounds: (0, 0, 1920, 1080)
+swap interval: 1 frames
+Windowed mode.
+Vendor: "b'Intel'"
+Renderer: b'Intel(R) Iris(R) Xe Graphics'
+Version: b'4.6.0 - Build 30.0.101.1692'
+Display Info: None
+Screen sizes: virtual=(1920, 1080) physical=(1731, 974) drawable=(1731, 974)
+Maximum texture size: 4096x4096
+Resetting cache.
+Early init took 805.69s
+Loading error handling took 0.02s
+Loading script took 0.17s
+Loading save slot metadata took 0.02s
+Loading persistent took 0.00s
+Running init code took 0.02s
+Loading analysis data took 0.01s
+Analyze and compile ATL took 0.00s
+Reloading save slot metadata took 0.02s
+Index archives took 0.00s
+Backing up script files to 'C:\\Users\\loewe\\AppData\\Roaming/RenPy/backups\\AwesomeDetectiveAgency':
+Dump and make backups took 0.04s
+Cleaning cache took 0.00s
+Making clean stores took 0.00s
+Initial gc took 0.05s
+DPI scale factor: 1.500000
+nvdrs: Loaded, about to disable thread optimizations.
+nvdrs: b"Couldn't load nvlib." (can be ignored)
+Creating interface object took 0.00s
+Cleaning stores took 0.00s
+Init translation took 0.04s
+Build styles took 0.00s
+Load screen analysis took 0.00s
+Analyze screens took 0.01s
+Save screen analysis took 0.02s
+Prepare screens took 0.05s
+Save pyanalysis. took 0.00s
+Save bytecode. took 0.01s
+Running _start took 0.00s
+Interface start took 0.15s
+
+Initializing gl2 renderer:
+primary display bounds: (0, 0, 1920, 1080)
+swap interval: 1 frames
+Windowed mode.
+Vendor: "b'Intel'"
+Renderer: b'Intel(R) Iris(R) Xe Graphics'
+Version: b'4.6.0 - Build 30.0.101.1692'
+Display Info: None
+Screen sizes: virtual=(1920, 1080) physical=(1731, 974) drawable=(1731, 974)
+Maximum texture size: 4096x4096
+Resetting cache.
+Early init took 816.62s
+Loading error handling took 0.02s
+Loading script took 0.10s
+Loading save slot metadata took 0.02s
+Loading persistent took 0.00s
+Running init code took 0.04s
+Loading analysis data took 0.01s
+Analyze and compile ATL took 0.00s
+Reloading save slot metadata took 0.02s
+Index archives took 0.00s
+Dump and make backups took 0.05s
+Cleaning cache took 0.00s
+Making clean stores took 0.00s
+Initial gc took 0.05s
+DPI scale factor: 1.500000
+nvdrs: Loaded, about to disable thread optimizations.
+nvdrs: b"Couldn't load nvlib." (can be ignored)
+Creating interface object took 0.00s
+Cleaning stores took 0.00s
+Init translation took 0.04s
+Build styles took 0.00s
+Load screen analysis took 0.02s
+Analyze screens took 0.00s
+Save screen analysis took 0.00s
+Prepare screens took 0.06s
+Save pyanalysis. took 0.00s
+Save bytecode. took 0.00s
+Running _start took 0.00s
+Interface start took 0.16s
+
+Initializing gl2 renderer:
+primary display bounds: (0, 0, 1920, 1080)
+swap interval: 1 frames
+Windowed mode.
+Vendor: "b'Intel'"
+Renderer: b'Intel(R) Iris(R) Xe Graphics'
+Version: b'4.6.0 - Build 30.0.101.1692'
+Display Info: None
+Screen sizes: virtual=(1920, 1080) physical=(1731, 974) drawable=(1731, 974)
+Maximum texture size: 4096x4096
+Resetting cache.
+Early init took 829.14s
+Loading error handling took 0.02s
+Loading script took 0.10s
+Loading save slot metadata took 0.02s
+Loading persistent took 0.00s
+Running init code took 0.04s
+Loading analysis data took 0.01s
+Analyze and compile ATL took 0.00s
+Reloading save slot metadata took 0.02s
+Index archives took 0.00s
+Dump and make backups took 0.04s
+Cleaning cache took 0.00s
+Making clean stores took 0.00s
+Initial gc took 0.05s
+DPI scale factor: 1.500000
+nvdrs: Loaded, about to disable thread optimizations.
+nvdrs: b"Couldn't load nvlib." (can be ignored)
+Creating interface object took 0.00s
+Cleaning stores took 0.00s
+Init translation took 0.03s
+Build styles took 0.00s
+Load screen analysis took 0.02s
+Analyze screens took 0.00s
+Save screen analysis took 0.00s
+Prepare screens took 0.07s
+Save pyanalysis. took 0.00s
+Save bytecode. took 0.00s
+Running _start took 0.00s
+Interface start took 0.16s
+
+Initializing gl2 renderer:
+primary display bounds: (0, 0, 1920, 1080)
+swap interval: 1 frames
+Windowed mode.
+Vendor: "b'Intel'"
+Renderer: b'Intel(R) Iris(R) Xe Graphics'
+Version: b'4.6.0 - Build 30.0.101.1692'
+Display Info: None
+Screen sizes: virtual=(1920, 1080) physical=(1731, 974) drawable=(1731, 974)
+Maximum texture size: 4096x4096
+Resetting cache.
+Early init took 942.86s
+Loading error handling took 0.02s
+Loading script took 0.30s
+Loading save slot metadata took 0.04s
+Loading persistent took 0.00s
+Running init code took 0.05s
+Loading analysis data took 0.02s
+Analyze and compile ATL took 0.00s
+Reloading save slot metadata took 0.04s
+Index archives took 0.00s
+Backing up script files to 'C:\\Users\\loewe\\AppData\\Roaming/RenPy/backups\\AwesomeDetectiveAgency':
+Dump and make backups took 0.05s
+Cleaning cache took 0.00s
+Making clean stores took 0.00s
+Initial gc took 0.06s
 DPI scale factor: 1.500000
 nvdrs: Loaded, about to disable thread optimizations.
 nvdrs: b"Couldn't load nvlib." (can be ignored)
@@ -640,54 +635,12 @@ Init translation took 0.05s
 Build styles took 0.00s
 Load screen analysis took 0.00s
 Analyze screens took 0.02s
-Save screen analysis took 0.02s
-Prepare screens took 0.07s
-Save pyanalysis. took 0.02s
-Save bytecode. took 0.02s
-Running _start took 0.00s
-Interface start took 0.19s
-
-Initializing gl2 renderer:
-primary display bounds: (0, 0, 1920, 1080)
-swap interval: 1 frames
-Windowed mode.
-Vendor: "b'Intel'"
-Renderer: b'Intel(R) Iris(R) Xe Graphics'
-Version: b'4.6.0 - Build 30.0.101.1692'
-Display Info: None
-Screen sizes: virtual=(1920, 1080) physical=(1731, 974) drawable=(1731, 974)
-Maximum texture size: 4096x4096
-Resetting cache.
-Early init took 1985.85s
-Loading error handling took 0.03s
-Loading script took 0.26s
-Loading save slot metadata took 0.04s
-Loading persistent took 0.00s
-Running init code took 0.05s
-Loading analysis data took 0.02s
-Analyze and compile ATL took 0.00s
-Reloading save slot metadata took 0.04s
-Index archives took 0.00s
-Backing up script files to 'C:\\Users\\loewe\\AppData\\Roaming/RenPy/backups\\AwesomeDetectiveAgency':
-Dump and make backups took 0.07s
-Cleaning cache took 0.00s
-Making clean stores took 0.00s
-Initial gc took 0.07s
-DPI scale factor: 1.500000
-nvdrs: Loaded, about to disable thread optimizations.
-nvdrs: b"Couldn't load nvlib." (can be ignored)
-Creating interface object took 0.00s
-Cleaning stores took 0.00s
-Init translation took 0.05s
-Build styles took 0.00s
-Load screen analysis took 0.00s
-Analyze screens took 0.03s
-Save screen analysis took 0.02s
+Save screen analysis took 0.03s
 Prepare screens took 0.07s
 Save pyanalysis. took 0.00s
 Save bytecode. took 0.02s
 Running _start took 0.00s
-Interface start took 0.20s
+Interface start took 0.16s
 
 Initializing gl2 renderer:
 primary display bounds: (0, 0, 1920, 1080)
@@ -700,229 +653,21 @@ Display Info: None
 Screen sizes: virtual=(1920, 1080) physical=(1731, 974) drawable=(1731, 974)
 Maximum texture size: 4096x4096
 Resetting cache.
-Early init took 1995.81s
+Early init took 984.21s
 Loading error handling took 0.02s
-Loading script took 0.21s
-Loading save slot metadata took 0.03s
-Loading persistent took 0.00s
-Running init code took 0.04s
-Loading analysis data took 0.02s
-Analyze and compile ATL took 0.00s
-Reloading save slot metadata took 0.04s
-Index archives took 0.00s
-Backing up script files to 'C:\\Users\\loewe\\AppData\\Roaming/RenPy/backups\\AwesomeDetectiveAgency':
-Dump and make backups took 0.06s
-Cleaning cache took 0.00s
-Making clean stores took 0.00s
-Initial gc took 0.07s
-DPI scale factor: 1.500000
-nvdrs: Loaded, about to disable thread optimizations.
-nvdrs: b"Couldn't load nvlib." (can be ignored)
-Creating interface object took 0.00s
-Cleaning stores took 0.00s
-Init translation took 0.04s
-Build styles took 0.00s
-Load screen analysis took 0.00s
-Analyze screens took 0.01s
-Save screen analysis took 0.02s
-Prepare screens took 0.07s
-Save pyanalysis. took 0.00s
-Save bytecode. took 0.02s
-Running _start took 0.00s
-Interface start took 0.19s
-
-Initializing gl2 renderer:
-primary display bounds: (0, 0, 1920, 1080)
-swap interval: 1 frames
-Windowed mode.
-Vendor: "b'Intel'"
-Renderer: b'Intel(R) Iris(R) Xe Graphics'
-Version: b'4.6.0 - Build 30.0.101.1692'
-Display Info: None
-Screen sizes: virtual=(1920, 1080) physical=(1731, 974) drawable=(1731, 974)
-Maximum texture size: 4096x4096
-Resetting cache.
-Early init took 2023.77s
-Loading error handling took 0.03s
-Loading script took 0.21s
-Loading save slot metadata took 0.03s
+Loading script took 0.17s
+Loading save slot metadata took 0.02s
 Loading persistent took 0.00s
 Running init code took 0.03s
-Loading analysis data took 0.02s
-Analyze and compile ATL took 0.00s
-Reloading save slot metadata took 0.03s
-Index archives took 0.00s
-Backing up script files to 'C:\\Users\\loewe\\AppData\\Roaming/RenPy/backups\\AwesomeDetectiveAgency':
-Dump and make backups took 0.07s
-Cleaning cache took 0.00s
-Making clean stores took 0.00s
-Initial gc took 0.08s
-DPI scale factor: 1.500000
-nvdrs: Loaded, about to disable thread optimizations.
-nvdrs: b"Couldn't load nvlib." (can be ignored)
-Creating interface object took 0.00s
-Cleaning stores took 0.00s
-Init translation took 0.05s
-Build styles took 0.00s
-Load screen analysis took 0.00s
-Analyze screens took 0.01s
-Save screen analysis took 0.03s
-Prepare screens took 0.09s
-Save pyanalysis. took 0.02s
-Save bytecode. took 0.02s
-Running _start took 0.00s
-Interface start took 0.20s
-
-Initializing gl2 renderer:
-primary display bounds: (0, 0, 1920, 1080)
-swap interval: 1 frames
-Windowed mode.
-Vendor: "b'Intel'"
-Renderer: b'Intel(R) Iris(R) Xe Graphics'
-Version: b'4.6.0 - Build 30.0.101.1692'
-Display Info: None
-Screen sizes: virtual=(1920, 1080) physical=(1731, 974) drawable=(1731, 974)
-Maximum texture size: 4096x4096
-Resetting cache.
-Early init took 2067.04s
-Loading error handling took 0.02s
-Loading script took 0.26s
-Loading save slot metadata took 0.03s
-Loading persistent took 0.00s
-Running init code took 0.04s
-Loading analysis data took 0.02s
-Analyze and compile ATL took 0.00s
-Reloading save slot metadata took 0.04s
-Index archives took 0.00s
-Backing up script files to 'C:\\Users\\loewe\\AppData\\Roaming/RenPy/backups\\AwesomeDetectiveAgency':
-Dump and make backups took 0.08s
-Cleaning cache took 0.00s
-Making clean stores took 0.00s
-Initial gc took 0.07s
-DPI scale factor: 1.500000
-nvdrs: Loaded, about to disable thread optimizations.
-nvdrs: b"Couldn't load nvlib." (can be ignored)
-Creating interface object took 0.00s
-Cleaning stores took 0.00s
-Init translation took 0.06s
-Build styles took 0.00s
-Load screen analysis took 0.00s
-Analyze screens took 0.01s
-Save screen analysis took 0.03s
-Prepare screens took 0.09s
-Save pyanalysis. took 0.02s
-Save bytecode. took 0.03s
-Running _start took 0.00s
-Interface start took 0.20s
-
-Initializing gl2 renderer:
-primary display bounds: (0, 0, 1920, 1080)
-swap interval: 1 frames
-Windowed mode.
-Vendor: "b'Intel'"
-Renderer: b'Intel(R) Iris(R) Xe Graphics'
-Version: b'4.6.0 - Build 30.0.101.1692'
-Display Info: None
-Screen sizes: virtual=(1920, 1080) physical=(1731, 974) drawable=(1731, 974)
-Maximum texture size: 4096x4096
-Resetting cache.
-Early init took 2069.40s
-Loading error handling took 0.02s
-Loading script took 0.14s
-Loading save slot metadata took 0.03s
-Loading persistent took 0.00s
-Running init code took 0.05s
 Loading analysis data took 0.01s
 Analyze and compile ATL took 0.00s
 Reloading save slot metadata took 0.03s
 Index archives took 0.00s
-Dump and make backups took 0.05s
-Cleaning cache took 0.00s
-Making clean stores took 0.00s
-Initial gc took 0.07s
-DPI scale factor: 1.500000
-nvdrs: Loaded, about to disable thread optimizations.
-nvdrs: b"Couldn't load nvlib." (can be ignored)
-Creating interface object took 0.00s
-Cleaning stores took 0.00s
-Init translation took 0.04s
-Build styles took 0.00s
-Load screen analysis took 0.03s
-Analyze screens took 0.00s
-Save screen analysis took 0.00s
-Prepare screens took 0.06s
-Save pyanalysis. took 0.00s
-Save bytecode. took 0.00s
-Running _start took 0.00s
-Interface start took 0.20s
-
-Initializing gl2 renderer:
-primary display bounds: (0, 0, 1920, 1080)
-swap interval: 1 frames
-Windowed mode.
-Vendor: "b'Intel'"
-Renderer: b'Intel(R) Iris(R) Xe Graphics'
-Version: b'4.6.0 - Build 30.0.101.1692'
-Display Info: None
-Screen sizes: virtual=(1920, 1080) physical=(1731, 974) drawable=(1731, 974)
-Maximum texture size: 4096x4096
-Resetting cache.
-Early init took 2071.51s
-Loading error handling took 0.04s
-Loading script took 0.16s
-Loading save slot metadata took 0.04s
-Loading persistent took 0.00s
-Running init code took 0.05s
-Loading analysis data took 0.02s
-Analyze and compile ATL took 0.00s
-Reloading save slot metadata took 0.03s
-Index archives took 0.00s
-Dump and make backups took 0.05s
-Cleaning cache took 0.00s
-Making clean stores took 0.00s
-Initial gc took 0.06s
-DPI scale factor: 1.500000
-nvdrs: Loaded, about to disable thread optimizations.
-nvdrs: b"Couldn't load nvlib." (can be ignored)
-Creating interface object took 0.00s
-Cleaning stores took 0.00s
-Init translation took 0.04s
-Build styles took 0.00s
-Load screen analysis took 0.03s
-Analyze screens took 0.00s
-Save screen analysis took 0.00s
-Prepare screens took 0.07s
-Save pyanalysis. took 0.00s
-Save bytecode. took 0.00s
-Running _start took 0.00s
-Interface start took 0.20s
-
-Initializing gl2 renderer:
-primary display bounds: (0, 0, 1920, 1080)
-swap interval: 1 frames
-Windowed mode.
-Vendor: "b'Intel'"
-Renderer: b'Intel(R) Iris(R) Xe Graphics'
-Version: b'4.6.0 - Build 30.0.101.1692'
-Display Info: None
-Screen sizes: virtual=(1920, 1080) physical=(1731, 974) drawable=(1731, 974)
-Maximum texture size: 4096x4096
-Resetting cache.
-Early init took 2116.83s
-Loading error handling took 0.02s
-Loading script took 0.27s
-Loading save slot metadata took 0.04s
-Loading persistent took 0.00s
-Running init code took 0.05s
-Loading analysis data took 0.02s
-Analyze and compile ATL took 0.00s
-Reloading save slot metadata took 0.03s
-Index archives took 0.00s
 Backing up script files to 'C:\\Users\\loewe\\AppData\\Roaming/RenPy/backups\\AwesomeDetectiveAgency':
-Dump and make backups took 0.07s
+Dump and make backups took 0.04s
 Cleaning cache took 0.00s
 Making clean stores took 0.00s
-Initial gc took 0.06s
+Initial gc took 0.04s
 DPI scale factor: 1.500000
 nvdrs: Loaded, about to disable thread optimizations.
 nvdrs: b"Couldn't load nvlib." (can be ignored)
@@ -933,11 +678,11 @@ Build styles took 0.00s
 Load screen analysis took 0.00s
 Analyze screens took 0.01s
 Save screen analysis took 0.02s
-Prepare screens took 0.07s
-Save pyanalysis. took 0.02s
+Prepare screens took 0.06s
+Save pyanalysis. took 0.00s
 Save bytecode. took 0.02s
 Running _start took 0.00s
-Interface start took 0.21s
+Interface start took 0.16s
 
 Initializing gl2 renderer:
 primary display bounds: (0, 0, 1920, 1080)
