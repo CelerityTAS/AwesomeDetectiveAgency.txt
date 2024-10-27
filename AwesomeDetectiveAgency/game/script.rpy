@@ -53,14 +53,14 @@ label start:
     # Anruf des Butlers
     "Hello, is this the Caze Solver's Detective Agency?"
     
-    P "You have indeed, how may I be of assistance?"  
+    P "Indeed it is, how may I be of assistance?"  
     "I am Michael Dacoity"
-    B "Your Grandma and I have been working at the Howards Estate for a few months now."
+    B "Your grandma and I have been working at the Howards' Estate for a few months now."
     # show anon scared
-    B "Yesterday Lady Bennington, Sir Howards wife was murdered!"
+    B "Yesterday, Lady Bennington, Sir Howard's wife was murdered!"
     B "The Police seems to believe your grandma was the murderer"
     B "I cannot fathom sweet poor old Lily being a cold blooded murderer"
-    B "Please visit me at the Estate, Please hurry, before your grandma is behind bars."
+    B "Please visit me at the Estate, lest your grandma finds herself behind bars."
     hide anon
     jump place_select
 
@@ -150,7 +150,7 @@ label inspect_Estate:
                 zoom 0.5
                 yalign 0.64
             P "I guess she was already extraordinarily strong!"
-            P "I guess the other one is from Lady Gold"
+            P "The other one must be from Lady Gold"
             menu paintings:
                 "What Painting to look at further"
                 "Pie Thing":
@@ -183,13 +183,14 @@ label inspect_Estate:
                 "Grandma":
                     P "She is buff!"
                     P "Almost makes me wanna believe she did it!"
-                    P "She could probably beat up a few Gangsters on her own if she wanted to!"
-                    P "That reminds me, that I never asked her, what she used to do before becoming a cleaning lady"
+                    P "She could probably beat up a few gangsters on her own if she wanted to!"
+                    P "That reminds me, I never asked her, what she used to do before becoming a cleaning lady"
                     P "I guess it must have paid well, I mean she has her own little fortune"
                     P "She never really talkes about her past..."
                     jump paintings
                 "Lady":
-                    P "seems to be the dead lady. "
+                    P "It seems like it is the dead lady."
+                    P "A pity, she looks breathtaking"
                     P "I will find whoever killed you!"
                     jump paintings
                 "Enough of the Paintings!":
@@ -268,7 +269,7 @@ label talk_to_butler:
         $ talked_to_butler = True
         "Welcome to the Estate Sir"
     menu:
-        "Where is my Grandma?":
+        "Where is my grandma?":
             B "She is at the police station, in custody"
             B "I asked you to come here so you could look at the crime scene and prove her innocence!"
         "Show me to the Crime Scene":
@@ -295,7 +296,7 @@ label talking_to_crow:
             zoom 0.5
             yalign 0.64
         C "Hello, who might you be?"
-        show detective normal at left with easeinleft: 
+        show detective normal at left: 
             zoom 0.5
             yalign 0.64
         P "I am searching for someone that might have murdered the Lady of the local Mansion"
@@ -344,9 +345,6 @@ label murderer_room:
                 jump place_select
     
 label inspect_murderer_room:
-    #fenster inspecten 
-    #calendar angeguckt oder aufgehoben
-    #kann dann zum back alley
 
     show bg murderroom
 
@@ -382,6 +380,7 @@ label inspect_murderer_room:
 
         "Calendar" if (not "Calendar" in player_inventory):
             P "Found the calendar!"
+            $ foundcalendar = True
             menu:
                 "Pick it up?"
                 "Yes":
@@ -402,17 +401,20 @@ label inspect_murderer_room:
                 "No":
                     P "I don't care about personal buisness"
                     P "Let's go somewhere with useful evidence"
+        "Inspect windows":
+            "These windows are very clean, huh"
+            if (foundcalendar == True) or ("Calendar" in player_inventory):
+                jump BackAlley
+            else:
+                jump murderer_room
 
         "Leave":
             jump murderer_room
 
+    #fenster inspecten 
+    #calendar angeguckt oder aufgehoben
+    #kann dann zum back alley
     jump inspect_murderer_room
-
-
-#scherben vase 
-#vase selbst blutiger handabdruck
-#calendar datum 27.10
-
 
 label talking_to_sir_gold:
     hide crow
@@ -430,12 +432,12 @@ label talking_to_sir_gold:
         $ talked_to_sir = True
         M "You must be the Detective Michael told me about."
         M "However I must warn you that the police has already found the murderer, so there is nothing for you to do here"
-        P "I am very sure she is innocent!"
+        P "I am quite sure she is innocent!"
         P "That is what I am here to proof! I will find the real killer!"
-    menu sir_gold_menu:
-        "tell me about your affair" if knows_affair:
+    menu:
+        "Tell me about your affair" if knows_affair:
             jump sirs_affair
-        "tell me about your butler":
+        "Tell me about your butler":
             jump sir_gold_on_butler
         "what happened?":
             if (not knows_affair):
@@ -462,9 +464,9 @@ label talking_to_sir_gold:
             jump murderer_room
             
 label sir_gold_on_butler:
-    M "He is a good Butler, we have had him in our services for about 2 months now"
+    M "He is a good butler, we have had him in our services for about 2 months now"
     P "Hmm ok"
-    M "What he doesn't talk much!"
+    M "Shouldn't talking be your specialty as a detective?!?"
     jump talking_to_sir_gold
 
 label sirs_affair:
@@ -475,7 +477,7 @@ label sirs_affair:
     show sirgold normal at right: 
             zoom 0.5
             yalign 0.64
-    M "it hurts to say this, but I had secretly been meeting other women besides my wife"
+    M "It hurts to say this, but I have secretly been meeting other women besides my wife"
     M "She definitely never found out though!"
     P "Yeah yeah"
     P "So where were you really, when your wife was killed"
@@ -486,7 +488,7 @@ label sirs_affair:
     show sirgold normal at right: 
             zoom 0.5
             yalign 0.64
-    M "I was really with my new miss in a fancy restaurant a few hours away from here"
+    M "At that time I was meeting my new misstress in a fancy restaurant a few hours away from here"
     M "That means I cannot have murdered my wife, yes!"
     P "We will see about that"
     jump talking_to_sir_gold
@@ -502,13 +504,13 @@ label sir_accusation:
             yalign 0.64
     M "You think I murdered my wife?"
     M "Are you insane?"
-    M "I know I shouldn't have let some loosey doosey detective snoop around the place"
+    M "I know I shouldn't have let some loosey doosey detective snoop around my place"
     M "What could you have possibly taken as evidence for your claim?"
     menu:
         "You clearly..."
         "wanted to get my grandmother fired":
             jump sir_accusation_grandma_fired
-        "Weren't home on the 27.th":
+        "Weren't home on the 27th":
             jump sir_accusation_not_home
         "had an affair and wanted your wife dead":
             jump sir_accusation_affair
@@ -549,9 +551,6 @@ label sir_accusation_evidence:
     $ ret = _return
     if (ret=="Calendar"):
         jump sirs_affair
-
-
-
 
 label butler_accusation:
     #show Butler suprised
