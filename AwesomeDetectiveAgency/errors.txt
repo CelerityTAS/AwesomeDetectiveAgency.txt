@@ -2,29 +2,9 @@
 errors listed below, and try again.
 
 
-File "game/script.rpy", line 135: show statement expects a non-empty block.
-    show detective wrong at left: 
-                                 ^
-
-File "game/script.rpy", line 136: expected statement.
-    zoom 0.5
-          ^
-
-File "game/script.rpy", line 137: expected statement.
-    yalign 0.64
-            ^
-
-File "game/script.rpy", line 139: show statement expects a non-empty block.
-    show detective normal at left: 
-                                  ^
-
-File "game/script.rpy", line 140: expected statement.
-    zoom 0.5
-          ^
-
-File "game/script.rpy", line 141: expected statement.
-    yalign 0.64
-            ^
+File "game/script.rpy", line 31: 'color' is not a keyword argument or valid child of the screen statement.
+    color "#ffffff" 
+         ^
 
 Ren'Py Version: Ren'Py 8.3.2.24090902
-Sun Oct 27 13:47:16 2024
+Sun Oct 27 14:56:57 2024

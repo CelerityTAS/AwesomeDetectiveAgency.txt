@@ -27,6 +27,13 @@ default unlocked_back_alley = False
 default unlocked_crime_scene = False
 default has_recent_calender = False
 
+screen pickevidence: 
+    vbox:
+        yalign 0.5
+        xalign 0.5
+        for item in player_inventory:
+            textbutton "[item]" action Return(item)
+
 # The game starts here.
 
 label start:
@@ -392,17 +399,41 @@ label talking_to_sir_gold:
     show sirgold normal at right: 
             zoom 0.5
             yalign 0.64
+
+    if (accusation_mode):
+        jump sir_accusation
     if (not talked_to_sir):
         $ talked_to_sir = True
-        M "Oh hello, you must be the Detective I heard is investigating the death of my poor wife."
+        M "You must be the Detective Michael told me about."
         M "However I must warn you that the police has already found the murderer, so there is nothing for you to do here"
         P "I am very sure she is innocent!"
         P "That is what I am here to proof! I will find the real killer!"
-    menu:
+    menu sir_gold_menu:
         "tell me about your affair" if knows_affair:
             jump sirs_affair
         "tell me about your butler":
             jump sir_gold_on_butler
+        "what happened?":
+            if (not knows_affair):
+                M "I was sleeping in my room peacefully"
+            else:
+                M "I was at the place of a hostess"
+            M "The police told me your grandma brought tea to my wife"
+            M "Then she killed my wife with a vase and took sleeping pills"
+            M "The sleeping pills were later found in a trashcan in the kitchen"
+            P "can I see that kitchen?"
+            M "No, my servants are currently preparing my food"
+            jump sir_gold_menu
+        "Any strange occurances on that day?"
+            M "Apart from the death of my wife?"
+            M "I don't really remember anything"
+            M "I did receive a few calls from mafiosos, that wanted to get my money. Hahaha"
+            M "These mafiosos are really easy to spot however. They al have Earrings that are in the shape of Munition"
+            M "The big fishes even have nukes, someone told me once"
+            M "Truely crazy these people"
+            P "Don't you fear for your life?"
+            M "No!"
+            jump sir_gold_menu
         "leave":
             jump murderer_room
             
@@ -413,6 +444,7 @@ label sir_gold_on_butler:
     jump talking_to_sir_gold
 
 label sirs_affair:
+    $ knows_affair = True
     show detective normal at left: 
             zoom 0.5
             yalign 0.64
@@ -435,9 +467,6 @@ label sirs_affair:
     P "We will see about that"
     jump talking_to_sir_gold
 
-### Sir about affair
-label sir_not_home:
-    return
 
 ### Sir Accusation
 label sir_accusation:
@@ -472,25 +501,30 @@ label sir_accusation_affair:
             yalign 0.64
         jump sir_accusation_evidence
     else: 
-        jump sir_not_home
+        jump sir_accusation_evidence
 
 label sir_accusation_grandma_fired:
     M "If I wanted your grandmother fired, I would have just fired her"
     P "You were scared of her, since she could easily beat you up"
-    M "Nonsense"
+    M "Nonsense"    
     jump sir_accusation_evidence
 
 label sir_accusation_not_home:
     M "But if I wasn't home, then I could not have murdered my wife?"
     M "You seem to be confused"
-    show Player wrong at left: 
+    show detective wrong at left: 
             zoom 0.5
             yalign 0.64
     if (knows_affair):
         jump sir_accusation_evidence
     else:
-        jump sir_not_home
+        jump sir_accusation_evidence
 
+label sir_accusation_evidence:
+    call screen pickevidence
+    $ ret = _return
+    if (ret=="Calendar"):
+        jump sirs_affair
 
 
 
@@ -502,15 +536,11 @@ label butler_accusation:
     B "I seriously hope you are in your right mind, Detective"
     menu:
         B "I invited you to this place so you could defend your grandma, why would I have done that if I murdered her"
-        "You were trying to protect my Grandma":
-            pass
         "You were framing Sir Gold instead!":
             jump butler_accusation_sir_gold
         "You were trying to bring me down too!":
             $ butler_accusation_score = butler_accusation_score-1
             jump butler_accusation
-    
-    return
 
 label butler_accusation_sir_gold:
     show butler shocked at right: 
@@ -594,7 +624,7 @@ label butler_accusation_grandma:
             zoom 0.5
             yalign 0.64
     B "I guess then it must have been your Grandma I truely am sorry."
-    show detective shocked at left: 
+    show detective wrong at left: 
             zoom 0.5
             yalign 0.64
     P "How dare you"
@@ -646,7 +676,7 @@ label butler_accusation_tatoo:
     jump butler_accusation_final_proof
 
 label butler_accusation_final_proof:
-    B "Do you have any concrete evidence?"
+    B "Do you have any concrete evidence that I murdered her?"
     P "I do"
     call screen pickevidence
     $ res = _return
