@@ -13,10 +13,8 @@ define C = Character("Crow")
 
 default talkedtocrow = False
 default foundcalendar = False
-default cantalk_to_crow = True
+default cantalk_to_crow = False
 default talked_to_butler = False
-default has_police_station=False
-default has_sirs_office=False
 default butler_accusation_score = 0
 
 default player_inventory = {'Business Card': "My Business Card", "Phone": "I figured ot the murder was on the 27.10. at 4:00 PM"}
@@ -25,7 +23,8 @@ default knows_affair = False
 default talked_to_sir = False
 # Evidence
 
-default unlocked_back_alley = True
+default unlocked_back_alley = False
+default unlocked_crime_scene = False
 default has_recent_calender = False
 
 # The game starts here.
@@ -67,7 +66,7 @@ label place_select:
             jump Estate
         "Back Alley" if (unlocked_back_alley or (has_recent_calender)):
             jump BackAlley
-        "Crime Scene":
+        "Crime Scene" if unlocked_crime_scene:
             jump murderer_room
 
 
@@ -307,6 +306,7 @@ label talking_to_crow:
 
 
 label murderer_room:
+    $ unlocked_crime_scene = True
     show bg murderroom
     if (not talked_to_sir):
         B "This is the crime Scene"
