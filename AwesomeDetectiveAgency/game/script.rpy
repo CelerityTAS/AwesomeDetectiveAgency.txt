@@ -18,6 +18,7 @@ default talked_to_butler = False
 default butler_accusation_score = 0
 
 default player_inventory = {'Business Card': "My Business Card", "Phone": "I figured ot the murder was on the 27.10. at 4:00 PM"}
+default player_inventory_remaining_slots = 6
 
 default knows_affair = False
 default talked_to_sir = False
@@ -127,13 +128,18 @@ label inspect_Estate:
                         jump inspect_Estate
             else :
                 P "Oh there is a note in the sheet music."
-                menu:
-                    P "Should I take a look at it?"
-                    "Yes":
-                        $ player_inventory["Note1"]="An old note left by someone, it just has the date of the murder."
-                        P "Ok I got it"
-                    "No":
-                        jump inspect_Estate
+                if (player_inventory_remaining_slots > 0):
+                    menu:
+                        P "Should I take a look at it?"
+                        "Yes":
+                            $ player_inventory_remaining_slots -= 1
+                            $ player_inventory["Note1"]="An old note left by someone, it just has the date of the murder."
+                            P "Ok I got it"
+                        "No":
+                            jump inspect_Estate
+                else:
+                    P "Oh I can't keep track of this much stuff."
+                    P "Gotta put back something"
         "Paintings":
             P "A few old Paintings are hung up here."
             show detective wrong at left: 
@@ -166,11 +172,13 @@ label inspect_Estate:
                                 jump paintings
                     else:
                         P "Oh there is a note hidden behind the painting"
-                        menu:
-                            "Take it!":
-                                $ player_inventory["Note3"]="An Old note left by someone, it just has 3 PM on it."
-                            "Leave it":
-                                jump paintings
+                        if (player_inventory_remaining_slots > 0):
+                            menu:
+                                "Take it!":
+                                    $ player_inventory_remaining_slots -= 1
+                                    $ player_inventory["Note3"]="An Old note left by someone, it just has 3 PM on it."
+                                "Leave it":
+                                    jump paintings
                     jump paintings
                 "Grandma":
                     P "She is buff!"
@@ -224,13 +232,15 @@ label inspect_back_alley:
                         jump paintings
             else:   
                 P "Oh there is a note here"
-                menu:
-                    P "Should I take it?"
-                    "Take it":
-                        $ player_inventory["Note4"]="A note someone left here, it just says 'Theo' and has a heart on it. It could be from the Sir's wife?"
-                        jump inspect_back_alley
-                    "Leave it":
-                        jump inspect_back_alley
+                if (player_inventory_remaining_slots > 0):
+                    menu:
+                        P "Should I take it?"
+                        "Take it":
+                            $ player_inventory_remaining_slots -= 1
+                            $ player_inventory["Note4"]="A note someone left here, it just says 'Theo' and has a heart on it. It could be from the Sir's wife?"
+                            jump inspect_back_alley
+                        "Leave it":
+                            jump inspect_back_alley
         "Mural":
             P "This reminds of a movie I watched as an adult"
             P "It was called murder on the solar express or something"
@@ -251,6 +261,9 @@ label talk_to_butler:
     show butler normal at right: 
             zoom 0.5
             yalign 0.64
+    if (accusation_mode):
+        jump butler_accusation
+        
     if (not talked_to_butler):
         $ talked_to_butler = True
         "Welcome to the Estate Sir"
@@ -272,7 +285,7 @@ label talking_to_crow:
             zoom 0.5
             yalign 0.64
 
-    if ("a" in player_inventory):
+    if (accusation_mode):
         jump crow_accusation
 
     if (not talkedtocrow):
@@ -339,7 +352,7 @@ label inspect_murderer_room:
 
     P "So this is where Lady Gold was murdered"
     menu: 
-        "Inspect vase":
+        "Vase":
             if("Vase" in player_inventory):
                 P "The Vase seemed quite expensive, should I put it back? "
                 menu: 
@@ -349,34 +362,41 @@ label inspect_murderer_room:
                         jump inspect_murderer_room
             else:
                 P "It seems to be shattered, and there is a lot of blood on it, better take it as evidence"
-                menu:
-                    P "Should I pick it up?"
-                    "Yes":
-                        $ player_inventory["Vase"] = "The vase that was used as the murder weapon, blood seems to be the only thing on it"
-                        P "With this, I'm sure I'll find the perpetrator!"
-                    "No":
-                        P "It is quite heavy, perhaps I can come back later"
+                if (player_inventory_remaining_slots > 0):
+                    menu:
+                        P "Should I pick it up?"
+                        "Yes":
+                            $ player_inventory_remaining_slots -= 1
+                            $ player_inventory["Vase"] = "The vase that was used as the murder weapon, blood seems to be the only thing on it"
+                            P "With this, I'm sure I'll find the perpetrator!"
+                        "No":
+                            P "It is quite heavy, perhaps I can come back later"
+                else:
+                    P "Wow I can't keep track of all this stuff"
 
-        "Inspect vase fragments" if ( not "Vase fragments" in player_inventory):
+        "Vase fragments" if ( not "Vase fragments" in player_inventory):
             P "Hmmmm, the fragments. They might be useful later, might aswell pick them up"
             "Picked up the fragments"
+            $ player_inventory_remaining_slots -= 1
             $ player_inventory ["Vase fragments"] = "Shattered remains of the once beautiful vase"
 
-        "Inspect calendar" if (not "Calendar" in player_inventory):
+        "Calendar" if (not "Calendar" in player_inventory):
             P "Found the calendar!"
             menu:
                 "Pick it up?"
                 "Yes":
+                    $ player_inventory_remaining_slots -= 1
                     $ player_inventory ["Calendar"] = "27.10 comes across as being a special day for Sir Gold, as it is marked with a heart"
                     P "The 27th is marked as a special date, maybe I can ask around"
                 "No":
                     P "Why would a calendar even be useful? I'm just wasting my time here"
           
-        "Inspect letter" if (not "Note2" in player_inventory):
+        "Chair" if (not "Note2" in player_inventory):
             P "Seems like I found some kind of letter, very intriguing"
             menu: 
                 "Pick the letter up?"
                 "Yes":
+                    $ player_inventory_remaining_slots -= 1
                     $ player_inventory ["Note2"] = "Sir Gold wants to meet someone"
                     P "Perhaps this letter may be useful"
                 "No":
