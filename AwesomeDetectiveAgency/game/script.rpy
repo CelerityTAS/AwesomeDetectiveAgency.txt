@@ -351,7 +351,7 @@ label inspect_murderer_room:
     show bg murderroom
 
     P "So this is where Lady Gold was murdered"
-    menu: 
+    menu murder_room_inspection_menu: 
         "Vase":
             if("Vase" in player_inventory):
                 P "The Vase seemed quite expensive, should I put it back? "
@@ -398,7 +398,7 @@ label inspect_murderer_room:
                 "Pick the letter up?"
                 "Yes":
                     $ player_inventory_remaining_slots -= 1
-                    $ player_inventory ["Note2"] = "Sir Gold wants to meet someone"
+                    $ player_inventory ["Note2"] = "It is about a meeting somewhere"
                     P "Perhaps this letter may be useful"
                 "No":
                     P "I don't care about personal buisness"
@@ -413,11 +413,7 @@ label inspect_murderer_room:
 
         "Leave":
             jump murderer_room
-
-    #fenster inspecten 
-    #calendar angeguckt oder aufgehoben
-    #kann dann zum back alley
-    jump inspect_murderer_room
+    jump murder_room_inspection_menu
 
 label talking_to_sir_gold:
     hide crow
@@ -553,14 +549,19 @@ label sir_accusation_not_home:
 label sir_accusation_evidence:
     call screen pickevidence
     $ ret = _return
-    if (ret=="Calendar"):
+    if (ret=="Calendar" or ret=="Note1" or ret=="Note2" or ret=="Note3" or ret=="Note4"):
         jump sirs_affair
 
 label butler_accusation:
-    #show Butler suprised
+    show butler shocked: 
+        zoom 0.5
+        yalign 0.64
     B "Wait, you think I murdered Lady Gold?"
     #show Butler default
     B "I seriously hope you are in your right mind, Detective"
+    show butler normal at right: 
+        zoom 0.5
+        yalign 0.64
     menu:
         B "I invited you to this place so you could defend your grandma, why would I have done that if I murdered her"
         "You were framing Sir Gold instead!":
@@ -585,19 +586,31 @@ label butler_accusation_sir_gold:
     return
 
 label sleeping_evidence:
+    $ butler_accusation_score = butler_accusation_score-3
     show butler normal at right: 
             zoom 0.5
             yalign 0.64
     call screen pickevidence
     B "Sorry, but that is not at all evidence he was sleeping!"
+    jump butler_accusation_outsider
+
 label witness_evidence:
+    show butler normal at right: 
+        zoom 0.5
+        yalign 0.64
+    $ butler_accusation_score = butler_accusation_score-3
     show butler normal at right: 
             zoom 0.5
             yalign 0.64
     call screen pickevidence
     B "Sorry, but that doesn't prove anything"
+    jump butler_accusation_outsider
 
 label nothome:
+        show butler normal at right: 
+        zoom 0.5
+        yalign 0.64
+    $ butler_accusation_score = butler_accusation_score+2
     menu :
         B "What was he doing then?"
         "He was at a Hostess club":
@@ -631,6 +644,9 @@ label not_home_evidence:
         jump butler_accusation_outsider
             
 label butler_accusation_outsider:
+    show butler normal at right: 
+        zoom 0.5
+        yalign 0.64
     menu:
         B "Why could it not have just been an outsider?"
         "A birdie told me":
@@ -648,16 +664,16 @@ label GrandmaNinjaDefendingOutsiders:
 
 label butler_accusation_grandma:
     show detective normal at left: 
-            zoom 0.5
-            yalign 0.64
+        zoom 0.5
+        yalign 0.64
     B "I guess then it must have been your Grandma I truely am sorry."
     show detective wrong at left: 
-            zoom 0.5
-            yalign 0.64
+        zoom 0.5
+        yalign 0.64
     P "How dare you"
     show detective normal at left: 
-            zoom 0.5
-            yalign 0.64
+        zoom 0.5
+        yalign 0.64
     B "You still have not presented me with proof!"
     jump butler_accusation_final
 
@@ -687,8 +703,14 @@ label butler_accusation_revenge:
     jump butler_accusation_conclusion
 
 label butler_accusation_mafia:
+    show butler shocked at right: 
+        zoom 0.5
+        yalign 0.64
     B "The Mafia?"
     P "The Mafia!"
+    show butler normal at right: 
+        zoom 0.5
+        yalign 0.64
     menu:
         P "And proof for that is"
         "the tattoo you have on your hand":
@@ -704,7 +726,9 @@ label butler_accusation_tatoo:
 
 label butler_accusation_final_proof:
     B "Do you have any concrete evidence that I murdered her?"
-    P "I do"
+    B "Something specifically I left at the crime scene perhaps?"
+    B "Can't find anything?"
+    P "I have!"
     call screen pickevidence
     $ res = _return
     if (res=="Vase"):
@@ -738,8 +762,13 @@ label butler_accusation_conclusion:
         B "But it was an accident I swear"
         B "She just woke up, when I was fleeing with the vase"
         return
+    else:
+        B "I do not think you are in your right mind!"
+        B "I'm sure the Sir and the police will agree, that grandma was the murderer"
+        B "I am sorry I wasted our all time"
+        B "Goodbye"
+        return
 
 
 label LooseScreen:
-    show bg loose
     return
